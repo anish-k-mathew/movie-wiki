@@ -35,7 +35,7 @@ class Movies extends Component {
   }
 
   searchMovies(searchTerm) {
-    fetch("/searchMovie/" + searchTerm)
+    fetch("http://www.anishkmathew.com/searchMovie/" + searchTerm)
       .then(res => res.json())
       .then(result => {
         this.setSearchMovies(result);
