@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Movies from "./components/containers/Movies";
+import Movie from "./components/containers/Movie";
+
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 
@@ -18,6 +20,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/home" component={Home} />
             <Route exact path="/movies" component={Movies} />
+            <Route exact path="/movies/:id" component={Movie} />
           </Switch>
           <Footer />
         </div>

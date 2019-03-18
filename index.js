@@ -2,6 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
 require("./models/User");
 require("./services/Passport");
 
@@ -13,6 +16,11 @@ const moviedb = new MovieDb(keys.movieDBApiKey);
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+// Then use it before your routes are set up:
+app.use(cors());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -39,7 +47,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.port || 5000;
 
 // console.log that your server is up and running
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

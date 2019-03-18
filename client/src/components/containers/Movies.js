@@ -35,7 +35,7 @@ class Movies extends Component {
   }
 
   searchMovies(searchTerm) {
-    fetch("/search/" + searchTerm)
+    fetch("http://localhost:5000/search/" + searchTerm)
       .then(res => res.json())
       .then(result => {
         this.setSearchMovies(result);
@@ -64,7 +64,7 @@ class Movies extends Component {
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
         />
-        <div className="card-deck ">
+        <div className="card-deck">
           <div className="row">
             {result && result.map(item => <Movie key={item.id} item={item} />)}
           </div>
