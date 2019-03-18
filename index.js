@@ -58,7 +58,7 @@ app.get("/express_backend", (req, res) => {
 });
 
 // create a GET route
-app.get("/search/:name", (req, res) => {
+app.get("/searchMovie/:name", (req, res) => {
   moviedb
     .searchMovie({ query: req.params.name })
     .then(results => {
