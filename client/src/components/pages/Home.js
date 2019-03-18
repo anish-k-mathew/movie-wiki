@@ -7,9 +7,10 @@ class Home extends Component {
         <h1 className="display-4  text-danger">MovieWiki</h1>
         <p className="lead text-black m-3">
           Lorem ipsum guys! This site is still in development but i'm glad to
-          have it up!! You can currently search for a movie by click on the
-          Movie link up top. Although, the results do come up, i'm still working
-          on the details and searching by different options.
+          have it up!! You can currently search for a movie by clicking on the
+          Movie link up in the Top Navigation. Although, the results do come up,
+          i'm still working on the details and searching by different options. A
+          lot more to come!!
         </p>
 
         <p>
