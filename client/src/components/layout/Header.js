@@ -39,8 +39,13 @@ class Header extends Component {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/auth/google">
-                  Sign in With Google
+                <a className="nav-link" href="/login">
+                  Login
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/signup">
+                  Sign Up
                 </a>
               </li>
             </ul>

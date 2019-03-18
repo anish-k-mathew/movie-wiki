@@ -6,11 +6,14 @@ class Home extends Component {
       <div className="jumbotron jumbotron-fluid bg-light text-center">
         <h1 className="display-4  text-danger">MovieWiki</h1>
         <p className="lead text-black m-3">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
-          exercitationem ad tempore quos impedit, nemo ullam rem quo in
-          repudiandae. Id vero animi libero accusantium ex! Obcaecati illum
-          enim, dolorum aliquam ipsam necessitatibus recusandae sint unde ut
-          nesciunt nemo minus?
+          Lorem ipsum guys! This site is still in development but i'm glad to
+          have it up!!
+        </p>
+
+        <p>
+          Possimus doloremque maxime ut ullam sunt eveniet quo harum inventore.
+          Culpa labore similique voluptate excepturi suscipit aliquam dicta eum
+          voluptates tempora consequatur.
         </p>
         <hr />
         <p className="text-warning">
