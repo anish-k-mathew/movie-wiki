@@ -47,7 +47,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5070;
 
 // console.log that your server is up and running
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
@@ -55,14 +55,4 @@ app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 // create a GET route
 app.get("/express_backend", (req, res) => {
   res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
-});
-
-// create a GET route
-app.get("/searchMovie/:name", (req, res) => {
-  moviedb
-    .searchMovie({ query: req.params.name })
-    .then(results => {
-      res.send(results.results);
-    })
-    .catch(console.error);
 });

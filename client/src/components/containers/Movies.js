@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-
+import keys from "../../config/dev";
 import MovieSearch from "./MovieSearch";
 import Movie from "./Movie";
+const MovieDb = require("moviedb-promise");
+const movieDBApiKey = "f7b5dc7f802e943f335a3f26722ddfc4";
+
+const moviedb = new MovieDb(keys.movieDBApiKey);
 
 class Movies extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: null,
+      result: [],
       searchTerm: ""
     };
     this.setSearchMovies = this.setSearchMovies.bind(this);
@@ -34,16 +38,10 @@ class Movies extends Component {
     }
   }
 
-  searchMovies(searchTerm) {
-    fetch("http://www.anishkmathew.com/searchMovie/" + searchTerm)
-      .then(res => res.json())
-      .then(result => {
-        this.setSearchMovies(result);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+  searchMovies = async searchTerm => {
+    const response = await moviedb.searchMovie({ query: searchTerm });
+    this.setState({ result: response.results });
+  };
   componentDidMount() {
     const { searchTerm } = this.state;
     this.setState({ searchTerm });

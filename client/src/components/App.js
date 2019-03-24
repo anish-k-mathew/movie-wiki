@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/pages/Home";
-import Movies from "./components/containers/Movies";
-import Movie from "./components/containers/Movie";
+import Home from "./pages/Home";
+import Movies from "./containers/Movies";
+import Movie from "./containers/Movie";
 
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
 
 class App extends Component {
   state = {
