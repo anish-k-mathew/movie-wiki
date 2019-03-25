@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import keys from "../../config/dev";
+import keys from "../../config/keys";
 import MovieSearch from "./MovieSearch";
 import Movie from "./Movie";
 const MovieDb = require("moviedb-promise");
-const movieDBApiKey = "f7b5dc7f802e943f335a3f26722ddfc4";
 
 const moviedb = new MovieDb(keys.movieDBApiKey);
 
