@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const bodyParser = require("body-parser");
@@ -9,11 +8,6 @@ require("./models/User");
 require("./services/Passport");
 
 const keys = require("./config/keys");
-const MovieDb = require("moviedb-promise");
-
-const moviedb = new MovieDb(keys.movieDBApiKey);
-
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 const app = express();
 
