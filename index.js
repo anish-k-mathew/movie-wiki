@@ -4,17 +4,16 @@ const cors = require("cors");
 const app = express();
 
 const PORT = process.env.PORT || 5070;
-
 // console.log that your server is up and running
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
-const environment = process.env.NODE_ENV || 'development';
-const configuration = require('./knexfile')[environment];
-const db = require('knex')(configuration);
-
-console.log("Environment is " + environment);
-
-console.log(configuration);
+const db = knex({
+  client: 'pg',
+  connection: {
+    host : process.env.DATABASE_URL,
+    ssl: true,
+  }
+})
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
