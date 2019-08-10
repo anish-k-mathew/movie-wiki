@@ -4,7 +4,7 @@ import Movie from "./Movie";
 
 const MovieDb = require("moviedb-promise");
 
-const keys = require("./config/dev.js");
+const keys = require("./config/keys");
 
 const moviedb = new MovieDb(keys.movieDBApiKey);
 
