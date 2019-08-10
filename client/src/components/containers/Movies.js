@@ -4,7 +4,9 @@ import Movie from "./Movie";
 
 const MovieDb = require("moviedb-promise");
 
-const moviedb = new MovieDb("f7b5dc7f802e943f335a3f26722ddfc4");
+const keys = require("./config/dev.js");
+
+const moviedb = new MovieDb(keys.movieDBApiKey);
 
 class Movies extends Component {
   constructor(props) {
