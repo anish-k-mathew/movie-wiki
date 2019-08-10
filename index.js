@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const knex = require('knex');
+const knex = require("knex");
 
 const PORT = process.env.PORT || 5070;
 // console.log that your server is up and running
