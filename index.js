@@ -1,14 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const knex = require("knex");
 const app = express();
+
+const PORT = process.env.PORT || 5070;
+
+// console.log that your server is up and running
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const db = require('knex')(configuration);
 
+console.log("Environment is " + environment);
 
+console.log(configuration);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -32,16 +38,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-
-const PORT = process.env.PORT || 5070;
-
-// console.log that your server is up and running
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
-
-// create a GET route
-app.get("/express_backend", (req, res) => {
-  res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
-});
 
 app.post("/register", (req, res) => {
   db("user_profile").insert({
@@ -85,7 +81,7 @@ app.post("/watch", (req, res) => {
 });
 
 app.get("/seenlist", (req, res) => {
-  db("user_content")
+  db("USER_CONTENT")
     .select("*")
     .where({ email : "mathew.anishk@gmail.com" })
     .then(response => {
@@ -95,7 +91,7 @@ app.get("/seenlist", (req, res) => {
 
 
 app.get("/watchlist", (req, res) => {
-  db("user_content_watch_list")
+  db("USER_CONTENT_WATCH_LIST")
     .select("*")
     .where({ email : "mathew.anishk@gmail.com" })
     .then(response => {

@@ -1,13 +1,20 @@
 // Update with your config settings.
 
 module.exports = {
+
+ 
   development: {
-    client: "pg",
-    connection: "postgres://localhost/movie_wiki_db"
+    client: 'pg',
+    connection: 'postgres://localhost/movie-wiki-db',
+    useNullAsDefault: true
   },
 
   production: {
-    client: "pg",
-    connection: process.env.DATABASE_URL
+    client: 'pg',
+    connection: {
+      host: process.env.DATABASE_URL,
+      ssl: true
+    }
   }
+
 };
