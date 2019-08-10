@@ -1,0 +1,8 @@
+# NodeJS specific #
+node_modules/
+npm-debug.log
+package-lock.json
+
+config/dev.js
+
+.vscode/
