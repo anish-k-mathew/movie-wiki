@@ -19,15 +19,18 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parse": "^0.1.0",
+    "body-parser": "^1.19.0",
     "concurrently": "^4.1.0",
     "cookie-session": "^1.3.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "knex": "^0.19.1",
     "mongoose": "^5.4.19",
     "moviedb-promise": "^1.3.2",
     "nodemon": "^1.18.10",
     "passport": "^0.4.0",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "pg": "^7.12.0"
   },
   "devDependencies": {}
 }

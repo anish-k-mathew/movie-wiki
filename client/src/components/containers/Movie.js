@@ -3,36 +3,55 @@ import React, { Component } from "react";
 class Movie extends Component {
   state = {};
 
+  onSeenMovie = (item) => {
+    fetch('http://127.0.0.1:5070/movie', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        contentId: item.id,
+        title: item.title,
+        description: item.overview,
+        email: "mathew.anishk@gmail.com",
+        contentType: "Movie"
+      })
+    })
+  }
+
+  onAddToList = (item) => {
+    fetch('http://127.0.0.1:5070/watch', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        contentId: item.id,
+        title: item.title,
+        description: item.overview,
+        email: "mathew.anishk@gmail.com",
+        contentType: "Movie"
+      })
+    })
+  }
+
   render() {
-    const { id, title, overview, poster_path, release_date } = this.props.item;
+    const { id, poster_path} = this.props.item;
     console.log(this.props.item);
     return (
       <div class="col-3">
         <div className="card" key={id}>
+     
           <img
-            className="card-img-top img-fluid"
+            className="card-img-top"
             src={`https://image.tmdb.org/t/p/original${poster_path}`}
             alt="Card image cap"
           />
-          <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{overview}</p>
-            <p className="card-text">
-              <small className="text-muted">{release_date}</small>
-            </p>
-            <button className="btn btn-danger text-center mr-3" href="/movies">
-              Seen this movie
-            </button>
-            <button className="btn btn-danger text-center" href="/movies">
-              Add to watchlist
-            </button>
-            <button className="btn btn-danger text-center" href="/movies">
-              Details
-            </button>
-          </div>
-          <div className="card-footer">
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </div>
+          <button className="btn btn-warning" onClick={() => this.onAddToList(this.props.item)}>
+          Add to Watchlist
+          </button>
+          <button className="btn btn-primary" onClick={() => this.onSeenMovie(this.props.item)}>
+          Watched
+          </button>
+          <button className="btn btn-success" onClick={() => this.onSeenMovie(this.props.item)}>
+          See More
+          </button>
         </div>
       </div>
     );

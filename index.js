@@ -1,18 +1,24 @@
 const express = require("express");
 const cookieSession = require("cookie-session");
-const passport = require("passport");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const knex = require("knex");
+const db = knex({
+  client: "pg",
+  connection: {
+    host: "127.0.0.1",
 
-require("./models/User");
-require("./services/Passport");
+    database: "movie-wiki-db"
+  }
+});
 
 const keys = require("./config/keys");
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
 // Then use it before your routes are set up:
 app.use(cors());
 app.use(
@@ -22,13 +28,11 @@ app.use(
   })
 );
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-require("./routes/authRoutes")(app);
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 if (process.env.NODE_ENV === "production") {
   // Express will service prod assets like main.js file
@@ -49,4 +53,64 @@ app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 // create a GET route
 app.get("/express_backend", (req, res) => {
   res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
+});
+
+app.post("/register", (req, res) => {
+  db("user_profile").insert({
+    email: req.body.email,
+    first_name: req.body.firstName,
+    last_name: req.body.lastName,
+    joined_dt: new Date(),
+    last_login_dt: new Date()
+  });
+  res.json(req.body);
+});
+
+app.post("/movie", (req, res) => {
+
+  db("user_content")
+    .insert({
+      email: req.body.email,
+      ext_content_id: req.body.contentId,
+      content_type: req.body.contentType,
+      title: req.body.title,
+      description: req.body.description,
+      last_viewed_dt: new Date()
+    })
+    .then(console.log("sucess"));
+  res.json(req.body);
+});
+
+
+app.post("/watch", (req, res) => {
+
+  db("user_content_watch_list")
+    .insert({
+      email: req.body.email,
+      ext_content_id: req.body.contentId,
+      content_type: req.body.contentType,
+      title: req.body.title,
+      description: req.body.description
+    })
+    .then(console.log("sucess"));
+  res.json(req.body);
+});
+
+app.get("/seenlist", (req, res) => {
+  db("user_content")
+    .select("*")
+    .where({ email : "mathew.anishk@gmail.com" })
+    .then(response => {
+      return res.json(response);
+    });
+});
+
+
+app.get("/watchlist", (req, res) => {
+  db("user_content_watch_list")
+    .select("*")
+    .where({ email : "mathew.anishk@gmail.com" })
+    .then(response => {
+      return res.json(response);
+    });
 });
