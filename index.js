@@ -1,32 +1,20 @@
 const express = require("express");
-const cookieSession = require("cookie-session");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const knex = require("knex");
-const db = knex({
-  client: "pg",
-  connection: {
-    host: "127.0.0.1",
-
-    database: "movie-wiki-db"
-  }
-});
-
-const keys = require("./config/keys");
-
 const app = express();
+
+const environment = process.env.NODE_ENV || 'development';
+const configuration = require('./knexfile')[environment];
+const db = require('knex')(configuration);
+
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Then use it before your routes are set up:
 app.use(cors());
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-);
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
