@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+const knex = require('knex');
 
 const PORT = process.env.PORT || 5070;
 // console.log that your server is up and running
@@ -10,8 +11,9 @@ app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString : process.env.DATABASE_URL,
-    ssl: true,
+    //host : process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
   }
 })
 
