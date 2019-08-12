@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import Movies from "./containers/Movies";
-import Movie from "./containers/Movie";
-import Watchlist from "./containers/Watchlist";
-import Seenlist from "./containers/Seenlist";
+import Movies from "./movie-list/movie-list.component";
+import Movie from "./movie/movie.component";
+import Watchlist from "./Watchlist";
+import Seenlist from "./Seenlist";
 
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import MovieSearch from "./MovieSearch";
-import Movie from "./Movie";
+import MovieSearch from "./../movie-search/movie-search.component";
+import Movie from "./../movie/movie.component";
 
 const MovieDb = require("moviedb-promise");
 
