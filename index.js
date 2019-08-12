@@ -8,13 +8,9 @@ const PORT = process.env.PORT || 5070;
 // console.log that your server is up and running
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
-const db = knex({
-  client: 'pg',
-  connection: {
-    host: "127.0.0.1",
-    database: "movie-wiki-db"
-  }
-})
+const config = require("./config/keys");
+
+const db = knex(process.env.DATABASE_URL || config.dbConnection);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -61,7 +57,7 @@ app.post("/movie", (req, res) => {
       description: req.body.description,
       last_viewed_at: new Date()
     })
-    .then(console.log("sucess"));
+    .then(console.log("added movie"));
   res.json(req.body);
 });
 
@@ -76,7 +72,7 @@ app.post("/watch", (req, res) => {
       title: req.body.title,
       description: req.body.description
     })
-    .then(console.log("sucess"));
+    .then(console.log("added to watchlist"));
   res.json(req.body);
 });
 

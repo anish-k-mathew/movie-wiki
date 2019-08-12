@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class MovieSearch extends Component {
+class CastSearch extends Component {
   render() {
     const { value, onChange, onSubmit } = this.props;
 
@@ -81,4 +81,4 @@ class MovieSearch extends Component {
   }
 }
 
-export default MovieSearch;
+export default CastSearch;

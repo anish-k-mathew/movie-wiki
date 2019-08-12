@@ -25,19 +25,24 @@ class Header extends Component {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/movies">
-                  Find a Movie
+                  Movie
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/cast">
+                  Cast
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/watchlist">
-                  Watch List
+                Watch List
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/seenlist">
-                  What I've Seen
-                </a>
-              </li>
+              <a className="nav-link" href="/seenlist">
+                Watched List
+              </a>
+            </li>
             </ul>
           </div>
         </div>
