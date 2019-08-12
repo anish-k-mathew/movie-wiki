@@ -11,9 +11,8 @@ app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 const db = knex({
   client: 'pg',
   connection: {
-    //host : process.env.DATABASE_URL
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
+    host: "127.0.0.1",
+    database: "movie-wiki-db"
   }
 })
 
@@ -60,7 +59,7 @@ app.post("/movie", (req, res) => {
       content_type: req.body.contentType,
       title: req.body.title,
       description: req.body.description,
-      last_viewed_dt: new Date()
+      last_viewed_at: new Date()
     })
     .then(console.log("sucess"));
   res.json(req.body);
@@ -82,8 +81,8 @@ app.post("/watch", (req, res) => {
 });
 
 app.get("/seenlist", (req, res) => {
-  db("USER_CONTENT")
-    .select("*")
+  db('user_content')
+    .select('*')
     .where({ email : "mathew.anishk@gmail.com" })
     .then(response => {
       return res.json(response);
@@ -92,8 +91,8 @@ app.get("/seenlist", (req, res) => {
 
 
 app.get("/watchlist", (req, res) => {
-  db("USER_CONTENT_WATCH_LIST")
-    .select("*")
+  db('user_content_watch_list')
+    .select('*')
     .where({ email : "mathew.anishk@gmail.com" })
     .then(response => {
       return res.json(response);
