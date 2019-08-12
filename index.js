@@ -10,7 +10,7 @@ app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 const config = require("./config/keys");
 
-const db = knex(process.env.DATABASE_URL || config.dbConnection);
+const db = knex(config.dbConnection);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
