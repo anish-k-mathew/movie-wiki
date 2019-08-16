@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 class Cast extends Component {
 
   render() {
-    const { id, name, profile_path, match} = this.props.item;
+    const { id, name, profile_path} = this.props.item;
     return (
       <div className="col-3">
         <div className="card" key={id}>

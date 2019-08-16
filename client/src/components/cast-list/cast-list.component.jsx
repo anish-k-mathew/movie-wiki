@@ -15,8 +15,8 @@ class Castlist extends Component {
       result: [],
       searchTerm: ""
     };
-    this.setSearchMovies = this.setSearchMovies.bind(this);
-    this.searchMovies = this.searchMovies.bind(this);
+    this.setSearchCast = this.setSearchCast.bind(this);
+    this.searchCast = this.searchCast.bind(this);
     this.onHandleClick = this.onHandleClick.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
     this.onSearchSubmit = this.onSearchSubmit.bind(this);
@@ -29,30 +29,30 @@ class Castlist extends Component {
   onSearchSubmit(event) {
     const { searchTerm } = this.state;
     this.setState({ searchTerm });
-    this.searchMovies(searchTerm);
+    this.searchCast(searchTerm);
     event.preventDefault();
   }
-  setSearchMovies(result) {
+  setSearchCast(result) {
     this.setState({ result: result });
     if (result === null) {
       this.setState({ result: null });
     }
   }
 
-  searchMovies = async searchTerm => {
+  searchCast = async searchTerm => {
     const response = await moviedb.searchPerson({ query: searchTerm });
     this.setState({ result: response.results });
   };
   componentDidMount() {
     const { searchTerm } = this.state;
     this.setState({ searchTerm });
-    this.searchMovies(searchTerm);
+    this.searchCast(searchTerm);
   }
 
   onHandleClick(event) {
     this.setState({ searchTerm: event.target.value });
-    this.searchMovies(event.target.value);
-  }
+    this.searchCast(event.target.value);
+  }ar
 
   render() {
     const { searchTerm, result } = this.state;

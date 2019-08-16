@@ -5,7 +5,7 @@ class MovieSearch extends Component {
     const { value, onChange, onSubmit } = this.props;
 
     return (
-      <div class="input-group bg-light">
+      <div className="input-group bg-light">
         <form
           className="form-group col justify-content-center"
           onSubmit={onSubmit}
