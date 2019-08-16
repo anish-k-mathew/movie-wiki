@@ -13,14 +13,11 @@ class MovieCredit extends Component {
     this.state = {
       cast: [],
       searchTerm: props.match.params.personId
-        };
+    };
     this.setSearchMovies = this.setSearchMovies.bind(this);
     this.searchMovies = this.searchMovies.bind(this);
   }
 
-
-
-  
   setSearchMovies(cast) {
     this.setState({ cast: cast });
     if (cast === null) {
@@ -40,19 +37,15 @@ class MovieCredit extends Component {
     this.searchMovies(searchTerm);
   }
 
-
   render() {
     const { cast } = this.state;
 
     return (
       <React.Fragment>
-        
         <div className="card-deck">
           <div className="row">
-          {cast && cast.map(item => <Movie key={item.id} item={item} />)}
-
-              
-              )}
+            {cast && cast.map(item => <Movie key={item.id} item={item} />)}
+            )}
           </div>
         </div>
       </React.Fragment>
