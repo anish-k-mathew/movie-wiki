@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 class Cast extends Component {
 
   render() {
-    const { id, name, profile_path} = this.props.item;
+    const { id, name, profile_path, match} = this.props.item;
     return (
       <div className="col-3">
         <div className="card" key={id}>
@@ -15,8 +15,7 @@ class Cast extends Component {
             src={`https://image.tmdb.org/t/p/original${profile_path}`}
             alt="Card cap"
           />
-
-          <Link to="/movie-credit/">More Details </Link>
+          <Link to={`persons/${id}`}>More Details </Link>
 
         </div>
       </div>

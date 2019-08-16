@@ -35,7 +35,7 @@ class Movie extends Component {
     const { id, poster_path} = this.props.item;
     console.log(this.props.item);
     return (
-      <div class="col-3">
+      <div className="col-3">
         <div className="card" key={id}>
      
           <img

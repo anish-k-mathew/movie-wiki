@@ -12,9 +12,6 @@ import Footer from "./layout/Footer";
 import MovieCredit from "./movie-credit/movie-credit.component";
 
 class App extends Component {
-  state = {
-    response: null
-  };
 
   render() {
     return (
@@ -22,14 +19,14 @@ class App extends Component {
         <div className="container">
           <Header />
           <Switch>
-            <Route exact path="/home" component={Home} />
+            <Route path="/home" component={Home} />
             <Route exact path="/" component={Home} />
             <Route exact path="/movies" component={Movies} />
             <Route exact path="/movies/:id" component={Movie} />
             <Route exact path="/watchlist" component={Watchlist} />
             <Route exact path="/seenlist" component={Seenlist} />
             <Route exact path="/cast" component={Castlist} />
-            <Route exact path="/movie-credit" component={MovieCredit} />
+            <Route exact path="/persons/:personId" component={MovieCredit} />
 
 
           </Switch>

@@ -30,8 +30,8 @@ class Watchlist extends Component {
         <ul>
           {watchlist.map(item => (
             <li key={item.id}>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <h5>{item.title}</h5>
+              <h6>{item.description}</h6>
             </li>
           ))}
         </ul>
