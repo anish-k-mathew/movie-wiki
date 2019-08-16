@@ -5,9 +5,11 @@ import Movies from "./movie-list/movie-list.component";
 import Movie from "./movie/movie.component";
 import Watchlist from "./Watchlist";
 import Seenlist from "./Seenlist";
+import Castlist from "./cast-list/cast-list.component";
 
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
+import MovieCredit from "./movie-credit/movie-credit.component";
 
 class App extends Component {
   state = {
@@ -26,6 +28,9 @@ class App extends Component {
             <Route exact path="/movies/:id" component={Movie} />
             <Route exact path="/watchlist" component={Watchlist} />
             <Route exact path="/seenlist" component={Seenlist} />
+            <Route exact path="/cast" component={Castlist} />
+            <Route exact path="/movie-credit" component={MovieCredit} />
+
 
           </Switch>
           <Footer />

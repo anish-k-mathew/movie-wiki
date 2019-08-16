@@ -18,61 +18,8 @@ class MovieSearch extends Component {
             value={value}
             onChange={onChange}
           />
-          <div className="form-row mb-5">
-            <div className="form-group text-danger mr-auto ">
-              <label for="exampleFormControlSelect2">Search For </label>
-              <select className="form-control ">
-                <option selected value="1">
-                  Movie
-                </option>
-                <option value="2">Show</option>
-                <option value="3">Cast</option>
-              </select>
-            </div>
 
-            <div className="form-group text-danger mr-auto">
-              <label for="exampleFormControlSelect2">Language</label>
-              <select
-                multiple
-                className="form-control selectpicker"
-                data-actions-box="true"
-                id="exampleFormControlSelect2"
-              >
-                <option selected>English</option>
-                <option selected>Hindi</option>
-                <option selected>Malayalam</option>
-                <option selected>Tamil</option>
-              </select>
-            </div>
-            <div className="form-group text-danger mr-auto  ">
-              <label for="exampleFormControlSelect2">Year</label>
-              <select
-                className="form-control selectpicker"
-                multiple
-                data-actions-box="true"
-                id="exampleFormControlSelect2"
-              >
-                <option selected>All</option>
-                <option>2019</option>
-                <option>2018</option>
-                <option>2017</option>
-                <option>2016</option>
-              </select>
-            </div>
-            <div className="form-group text-danger  ">
-              <label for="exampleFormControlSelect2">Genre</label>
-              <select
-                multiple
-                className="form-control selectpicker"
-                id="exampleFormControlSelect2"
-              >
-                <option selected>All</option>
-                <option>Action</option>
-                <option>Comedy</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" className="btn btn-danger btn-block mb-3">
+          <button type="submit" className="btn btn-danger mb-3">
             Search
           </button>
         </form>

@@ -41,7 +41,7 @@ class Movie extends Component {
           <img
             className="card-img-top"
             src={`https://image.tmdb.org/t/p/original${poster_path}`}
-            alt="Card image cap"
+            alt="Card cap"
           />
           <button className="btn btn-warning" onClick={() => this.onAddToList(this.props.item)}>
           Add to Watchlist
