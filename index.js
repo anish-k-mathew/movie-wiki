@@ -12,6 +12,9 @@ const config = require("./config/keys");
 console.log(process.env.DATABASE_URL);
 const db = knex(config.dbConnection);
 
+console.log(dbConnection.connection);
+console.log(dbConnection.connection.connectionString)
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
