@@ -3,11 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const knex = require("knex");
-const path = require("path");
-
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-
+ 
 const PORT = process.env.PORT || 5070;
 // console.log that your server is up and running
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
@@ -29,31 +25,10 @@ app.use(function(req, res, next) {
   );
   next();
 });
-// Serve the static files from the React app
-//app.use(express.static(path.join(__dirname, "/client/build")));
-// Handles any requests that don't match the ones above
-//app.get("*", (req, res) => {
-  //res.sendFile(path.join(__dirname + "/client/build/index.html"));
-//});
 
-//if (process.env.NODE_ENV === "production") {
-// Express will service prod assets like main.js file
-
-// Express will serve index.html if it doesn't recognize the route
-//app.get("/", (req, res) => {
-//  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-//});
-//
-//app.use(express.static("client/build"));
-
-//if (process.env.NODE_ENV === "production") {
-  // Set static folder
-
-  app.get('*', function (req, res) {
-    const index = path.join(__dirname, 'build', 'index.html');
-    res.sendFile(index);
-  });
-
+app.get('*', (req, res) => {
+  res.render('index', data);
+});
 
 app.post("/register", (req, res) => {
   db("user_profile").insert({
