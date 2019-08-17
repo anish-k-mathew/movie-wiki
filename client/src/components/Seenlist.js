@@ -11,7 +11,7 @@ class Seenlist extends Component {
   }
 
   componentDidMount() {
-    fetch('http://127.0.0.1:5070/seenlist')
+    fetch('localhost:5070/seenlist')
       .then(res => res.json())
       .then(result => {
         this.setState({

@@ -11,7 +11,7 @@ class Watchlist extends Component {
   }
 
   componentDidMount() {
-    fetch('http://127.0.0.1:5070/watchlist')
+    fetch('localhost:5070/watchlist')
       .then(res => res.json())
       .then(result => {
         this.setState({
