@@ -23,8 +23,8 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/movies" component={Movies} />
             <Route exact path="/movies/:id" component={Movie} />
-            <Route exact path="/watchlist" component={Watchlist} />
-            <Route exact path="/seenlist" component={Seenlist} />
+            <Route exact path="/watch" component={Watchlist} />
+            <Route exact path="/seen" component={Seenlist} />
             <Route exact path="/cast" component={Castlist} />
             <Route exact path="/persons/:personId" component={MovieCredit} />
 

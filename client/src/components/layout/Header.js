@@ -34,12 +34,12 @@ class Header extends Component {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/watchlist">
+                <a className="nav-link" href="/watch">
                 Watch List
                 </a>
               </li>
               <li className="nav-item">
-              <a className="nav-link" href="/seenlist">
+              <a className="nav-link" href="/seen">
                 Watched List
               </a>
             </li>

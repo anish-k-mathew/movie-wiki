@@ -11,13 +11,7 @@ class Watchlist extends Component {
   }
 
   componentDidMount() {
-    fetch('/watchlist', {
-      method: 'get',
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    })
+    fetch('/watchlist')
       .then(res => res.json())
       .then(result => {
         this.setState({
