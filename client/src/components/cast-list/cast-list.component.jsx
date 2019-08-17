@@ -43,11 +43,6 @@ class Castlist extends Component {
     const response = await moviedb.searchPerson({ query: searchTerm });
     this.setState({ result: response.results });
   };
-  componentDidMount() {
-    const { searchTerm } = this.state;
-    this.setState({ searchTerm });
-    this.searchCast(searchTerm);
-  }
 
   onHandleClick(event) {
     this.setState({ searchTerm: event.target.value });

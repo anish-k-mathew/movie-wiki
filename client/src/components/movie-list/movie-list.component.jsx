@@ -43,11 +43,7 @@ class Movies extends Component {
     const response = await moviedb.searchMovie({ query: searchTerm });
     this.setState({ result: response.results });
   };
-  componentDidMount() {
-    const { searchTerm } = this.state;
-    this.setState({ searchTerm });
-    this.searchMovies(searchTerm);
-  }
+
 
   onHandleClick(event) {
     this.setState({ searchTerm: event.target.value });

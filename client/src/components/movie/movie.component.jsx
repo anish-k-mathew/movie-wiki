@@ -4,7 +4,7 @@ class Movie extends Component {
   state = {};
 
   onSeenMovie = item => {
-    fetch("http://127.0.0.1:5070/movie", {
+    fetch("localhost:5070/movie", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -18,7 +18,7 @@ class Movie extends Component {
   };
 
   onAddToList = item => {
-    fetch("http://127.0.0.1:5070/watch", {
+    fetch("localhost:5070/watch", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -33,7 +33,6 @@ class Movie extends Component {
 
   render() {
     const { id, poster_path } = this.props.item;
-    console.log(this.props.item);
     return (
       <div className="col-3">
         <div className="card" key={id}>
