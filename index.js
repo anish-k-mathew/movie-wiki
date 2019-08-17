@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const knex = require("knex");
-console.log(process.env.DATABASE_URL);
 
 const PORT = process.env.PORT || 5070;
 // console.log that your server is up and running
@@ -11,7 +10,7 @@ app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 const config = require("./config/keys");
 console.log(process.env.DATABASE_URL);
-const db = knex(config.dbConnection);
+const db = knex(config.dbConnection)
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
