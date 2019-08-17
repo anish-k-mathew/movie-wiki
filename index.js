@@ -45,7 +45,6 @@ app.use(function(req, res, next) {
 
 if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use('/', express.static("build"));
 
   app.get('*', function (req, res) {
     const index = path.join(__dirname, 'build', 'index.html');
