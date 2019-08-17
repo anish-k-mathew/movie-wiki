@@ -27,7 +27,7 @@ app.use(function(req, res, next) {
   next();
 });
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, "/client/build")));
+//app.use(express.static(path.join(__dirname, "/client/build")));
 // Handles any requests that don't match the ones above
 //app.get("*", (req, res) => {
   //res.sendFile(path.join(__dirname + "/client/build/index.html"));
@@ -37,11 +37,20 @@ app.use(express.static(path.join(__dirname, "/client/build")));
 // Express will service prod assets like main.js file
 
 // Express will serve index.html if it doesn't recognize the route
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
+//app.get("/", (req, res) => {
+//  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//});
 //
 //app.use(express.static("client/build"));
+
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use('/', express.static("build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  }); 
+}
 
 app.post("/register", (req, res) => {
   db("user_profile").insert({
