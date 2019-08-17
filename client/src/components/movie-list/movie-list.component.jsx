@@ -3,7 +3,6 @@ import MovieSearch from "./../movie-search/movie-search.component";
 import Movie from "./../movie/movie.component";
 
 const MovieDb = require("moviedb-promise");
-
 const moviedb = new MovieDb("f7b5dc7f802e943f335a3f26722ddfc4");
 
 class Movies extends Component {
