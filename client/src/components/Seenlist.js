@@ -11,13 +11,7 @@ class Seenlist extends Component {
   }
 
   componentDidMount() {
-    fetch('/seenlist', {
-      method: 'GET',
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    })
+    fetch('/seenlist')
       .then(res => res.json())
       .then(result => {
         this.setState({
