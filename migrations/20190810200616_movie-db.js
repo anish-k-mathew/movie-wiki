@@ -1,5 +1,10 @@
 exports.up = knex => {
   return Promise.all([
+    knex.schema.dropTable("user_profile"),
+    knex.schema.dropTable("user_content"),
+    knex.schema.dropTable("user_content_watchlist"),
+
+
     knex.schema.createTable("user_profile", table => {
       table.increments("id").primary();
       table.string("first_name");
