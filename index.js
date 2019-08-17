@@ -5,6 +5,9 @@ const app = express();
 const knex = require("knex");
 const path = require("path");
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+
 const PORT = process.env.PORT || 5070;
 // console.log that your server is up and running
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
@@ -43,14 +46,14 @@ app.use(function(req, res, next) {
 //
 //app.use(express.static("client/build"));
 
-if (process.env.NODE_ENV === "production") {
+//if (process.env.NODE_ENV === "production") {
   // Set static folder
 
   app.get('*', function (req, res) {
     const index = path.join(__dirname, 'build', 'index.html');
     res.sendFile(index);
   });
-}
+
 
 app.post("/register", (req, res) => {
   db("user_profile").insert({
