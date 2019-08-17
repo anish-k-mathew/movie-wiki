@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5070;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 const config = require("./config/keys");
-const db = knex(config.dbConnection)
+const db = knex(config.dbConnection);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -20,29 +20,28 @@ app.use(cors());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   next();
 });
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, "/client/build")));
 // Handles any requests that don't match the ones above
-app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
-
-
-
+//app.get("*", (req, res) => {
+  //res.sendFile(path.join(__dirname + "/client/build/index.html"));
+//});
 
 //if (process.env.NODE_ENV === "production") {
-  // Express will service prod assets like main.js file
+// Express will service prod assets like main.js file
 
-  // Express will serve index.html if it doesn't recognize the route
-  //app.get("*", (req, res) => {
-   // res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  //});
+// Express will serve index.html if it doesn't recognize the route
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 //
 //app.use(express.static("client/build"));
-
 
 app.post("/register", (req, res) => {
   db("user_profile").insert({
@@ -56,7 +55,6 @@ app.post("/register", (req, res) => {
 });
 
 app.post("/movie", (req, res) => {
-
   db("user_content")
     .insert({
       email: req.body.email,
@@ -70,9 +68,7 @@ app.post("/movie", (req, res) => {
   res.json(req.body);
 });
 
-
 app.post("/watch", (req, res) => {
-
   db("user_content_watch_list")
     .insert({
       email: req.body.email,
@@ -86,22 +82,19 @@ app.post("/watch", (req, res) => {
 });
 
 app.get("/seenlist", (req, res) => {
-  db('user_content')
-    .select('*')
-    .where({ email : "mathew.anishk@gmail.com" })
+  db("user_content")
+    .select("*")
+    .where({ email: "mathew.anishk@gmail.com" })
     .then(response => {
       return res.json(response);
     });
 });
 
-
 app.get("/watchlist", (req, res) => {
-  db('user_content_watch_list')
-    .select('*')
-    .where({ email : "mathew.anishk@gmail.com" })
+  db("user_content_watch_list")
+    .select("*")
+    .where({ email: "mathew.anishk@gmail.com" })
     .then(response => {
       return res.json(response);
     });
-
-
 });
