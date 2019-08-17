@@ -3,13 +3,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const knex = require("knex");
+const path = require("path");
 
 const PORT = process.env.PORT || 5070;
 // console.log that your server is up and running
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 const config = require("./config/keys");
-console.log(process.env.DATABASE_URL);
 const db = knex(config.dbConnection)
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,20 +24,20 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', function(req, res) {
-  res.sendFile('index.html', { root: __dirname });
-});
+
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 //if (process.env.NODE_ENV === "production") {
   // Express will service prod assets like main.js file
- // app.use(express.static("client/build"));
 
   // Express will serve index.html if it doesn't recognize the route
- // const path = require("path");
   //app.get("*", (req, res) => {
    // res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   //});
 //
+//app.use(express.static("client/build"));
+
 
 app.post("/register", (req, res) => {
   db("user_profile").insert({
@@ -97,4 +97,10 @@ app.get("/watchlist", (req, res) => {
     .then(response => {
       return res.json(response);
     });
+
+// Handles any requests that don't match the ones above
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 });
