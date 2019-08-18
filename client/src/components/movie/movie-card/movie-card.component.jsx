@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./movie-card.style.css";
 
@@ -59,27 +60,28 @@ class MovieCard extends Component {
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">{this.props.item.title}</h5>
           <p className="card-text">{this.props.item.overview}</p>
-          <p class="card-text"><small class="text-muted">Released on {this.props.item.release_date}</small></p>
+          <p class="card-text">
+            <small class="text-muted">
+              Released on {this.props.item.release_date}
+            </small>
+          </p>
 
-            <button
+          <button
             className="btn btn-light btn-sm btn-block"
             onClick={() => this.onAddToList(this.props.item)}
-            >
-              Add to Watchlist
-            </button>
-
-            <button
-              className="btn btn-danger btn-sm btn-block"
-              onClick={() => this.onSeenMovie(this.props.item)}
-            >
-              Watched it
-            </button>
-
-            <button
-            className="btn btn-danger btn-sm btn-block"
-            onClick={() => this.onMovieDetail(this.props.item)}
           >
-            See more details
+            Add to Watchlist
+          </button>
+
+          <button
+            className="btn btn-danger btn-sm btn-block"
+            onClick={() => this.onSeenMovie(this.props.item)}
+          >
+            Watched it
+          </button>
+
+          <button className="btn btn-danger btn-sm btn-block">
+            <Link to={`movies/${id}`}>View More</Link>
           </button>
         </div>
         <div />
