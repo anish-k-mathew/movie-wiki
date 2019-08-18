@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 
-class Cast extends Component {
+class CastCard extends Component {
 
   render() {
     const { id, name, profile_path} = this.props.item;
@@ -26,4 +26,4 @@ class Cast extends Component {
     }
 }
 
-export default Cast;
+export default CastCard;

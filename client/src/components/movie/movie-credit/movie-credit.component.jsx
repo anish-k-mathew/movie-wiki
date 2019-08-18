@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Movie from "./../movie/movie.component";
+import MovieCard from "./../movie-card/movie-card.component";
 
 const MovieDb = require("moviedb-promise");
 
@@ -42,7 +42,7 @@ class MovieCredit extends Component {
       <React.Fragment>
         <div>
           <div className="card-deck">
-            {cast && cast.map(item => <Movie key={item.id} item={item} />)}
+            {cast && cast.map(item => <MovieCard key={item.id} item={item} />)}
           </div>
         </div>
       </React.Fragment>

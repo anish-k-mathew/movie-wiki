@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import "./movie.style.css";
+import "./movie-card.style.css";
 
-class Movie extends Component {
+class MovieCard extends Component {
   state = {};
 
   onSeenMovie = item => {
@@ -20,6 +20,20 @@ class Movie extends Component {
   };
 
   onAddToList = item => {
+    fetch("/watch", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contentId: item.id,
+        title: item.title,
+        description: item.overview,
+        email: "mathew.anishk@gmail.com",
+        contentType: "Movie"
+      })
+    });
+  };
+
+  onMovieDetail = item => {
     fetch("/watch", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -60,6 +74,13 @@ class Movie extends Component {
             >
               Watched it
             </button>
+
+            <button
+            className="btn btn-danger btn-sm btn-block"
+            onClick={() => this.onMovieDetail(this.props.item)}
+          >
+            See more details
+          </button>
         </div>
         <div />
       </div>
@@ -67,4 +88,4 @@ class Movie extends Component {
   }
 }
 
-export default Movie;
+export default MovieCard;

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import ComponentSearch from "../component-search/component-search.component";
-import Cast from "./../cast/cast.component";
+import ComponentSearch from "./../../common/component-search/component-search.component"
+import CastCard from "./../cast-card/cast-card.component";
 
 const MovieDb = require("moviedb-promise");
 const moviedb = new MovieDb("f7b5dc7f802e943f335a3f26722ddfc4");
 
 
-class Castlist extends Component {
+class CastList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,7 +59,7 @@ class Castlist extends Component {
         />
         <div>
           <div>
-            {result && result.map(item => <Cast key={item.id} item={item} />)}
+            {result && result.map(item => <CastCard key={item.id} item={item} />)}
           </div>
         </div>
       </React.Fragment>
@@ -67,4 +67,4 @@ class Castlist extends Component {
   }
 }
 
-export default Castlist;
+export default CastList;
