@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class Cast extends Component {
 
@@ -14,7 +14,7 @@ class Cast extends Component {
             src={`https://image.tmdb.org/t/p/original${profile_path}`}
             alt="Card cap"
           />
-          <Link to={`persons/${id}`}>More Details </Link>
+          <Link to={`persons/${id}`}>View Movies for this Person</Link>
 
         </div>
       </div>

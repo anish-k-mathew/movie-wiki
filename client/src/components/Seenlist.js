@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Movie from "./movie/movie.component";
 
 class Seenlist extends Component {
-
   constructor() {
     super();
     this.state = {
-      seenlist : [],
+      seenlist: [],
       isLoaded: false
-    }
+    };
   }
 
   componentDidMount() {
-    fetch('/seenlist')
+    fetch("/seenlist")
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -27,17 +27,16 @@ class Seenlist extends Component {
       return <div>Loading ... </div>;
     } else {
       return (
-        <ul>
-          {seenlist.map(item => (
-            <li key={item.id}>
-            <h5>{item.title}</h5>
-            <h6>{item.description}</h6>
-            </li>
-          ))}
-        </ul>
+        <React.Fragment>
+          <div>
+            <div className="card-deck">
+              {seenlist &&
+                seenlist.map(item => <Movie key={item.ext_content_id} item={item} />)}
+            </div>
+          </div>
+        </React.Fragment>
       );
     }
   }
 }
-
 export default Seenlist;

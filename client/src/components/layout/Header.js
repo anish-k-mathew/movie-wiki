@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = () => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-danger">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-danger">
     <a className="navbar-brand" href="/homepage">
       MovieWiki
     </a>
@@ -20,12 +20,12 @@ const Header = () => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/movies">
-            Movie
+            Movie Search
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/cast">
-            Cast
+            Cast Search
           </a>
         </li>
         <li className="nav-item">

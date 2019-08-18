@@ -23,16 +23,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.post("/register", (req, res) => {
-  db("user_profile").insert({
-    email: req.body.email,
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
-    joined_dt: new Date(),
-    last_login_dt: new Date()
-  });
-  res.json(req.body);
-});
 
 app.post("/movie", (req, res) => {
   db("user_content")
@@ -60,6 +50,11 @@ app.post("/watch", (req, res) => {
     .then(console.log("added to watchlist"));
   res.json(req.body);
 });
+
+app.delete('/deleteList/:id', (req, res) => {
+  db("user_content_watch_list").where({'id': req.params.id}).del().then(console.log("deleted from list"));
+  res.json("deleted");
+})
 
 app.get("/seenlist", (req, res) => {
   db("user_content")

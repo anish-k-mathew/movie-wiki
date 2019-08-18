@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import "./movie.style.css";
 
 class Movie extends Component {
@@ -45,7 +46,7 @@ class Movie extends Component {
           <h5 className="card-title">{this.props.item.title}</h5>
           <p className="card-text">{this.props.item.overview}</p>
           <div className="d-flex flex-wrap">
-          <button
+            <button
               className="btn btn-warning"
               onClick={() => this.onAddToList(this.props.item)}
             >
@@ -59,12 +60,9 @@ class Movie extends Component {
               Already Watched
             </button>
           </div>
-            
-          </div>
-          <div>
-            
-          </div>
         </div>
+        <div />
+      </div>
     );
   }
 }
