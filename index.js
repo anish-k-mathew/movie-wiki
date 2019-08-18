@@ -1,13 +1,14 @@
 const express = require("express");
+
+
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const app = express();
 const knex = require("knex");
 const path = require("path");
-
 const config = require("./config/keys");
 const db = knex(config.dbConnection);
 
+const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -22,7 +23,6 @@ app.use(function(req, res, next) {
   );
   next();
 });
-
 
 app.post("/movie", (req, res) => {
   db("user_content")
@@ -51,15 +51,21 @@ app.post("/watch", (req, res) => {
   res.json(req.body);
 });
 
-app.delete('/deleteList/:id', (req, res) => {
-  db("user_content_watch_list").where({'id': req.params.id}).del().then(console.log("deleted from list"));
+app.delete("/deleteList/:id", (req, res) => {
+  db("user_content_watch_list")
+    .where({ id: req.params.id })
+    .del()
+    .then(console.log("deleted from list"));
   res.json("deleted");
-})
+});
 
-app.delete('/deleteHistory/:id', (req, res) => {
-  db("user_content").where({'id': req.params.id}).del().then(console.log("deleted from list"));
+app.delete("/deleteHistory/:id", (req, res) => {
+  db("user_content")
+    .where({ id: req.params.id })
+    .del()
+    .then(console.log("deleted from list"));
   res.json("deleted");
-})
+});
 
 app.get("/history", (req, res) => {
   db("user_content")

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/homepage/homepage.component";
 import MovieList from "./movie/movie-list/movie-list.component";
-import MovieDetail from "./movie/movie-detail/movie-detail.component.jsx"
+import MovieDetail from "./movie/movie-detail/movie-detail.component.jsx";
 
 import Watchlist from "./Watchlist";
 import WatchHistory from "./WatchHistory";
