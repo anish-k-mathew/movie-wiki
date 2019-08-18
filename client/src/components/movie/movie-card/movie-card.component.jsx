@@ -81,7 +81,7 @@ class MovieCard extends Component {
           </button>
 
           <button className="btn btn-danger btn-sm btn-block">
-            <Link to={`movies/${id}`}>View More</Link>
+            <Link to={`/movies/${id}`}>View More</Link>
           </button>
         </div>
         <div />
