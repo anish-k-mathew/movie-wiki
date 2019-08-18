@@ -34,7 +34,7 @@ const Header = () => (
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/seen">
+          <a className="nav-link" href="/watchhistory">
             History
           </a>
         </li>

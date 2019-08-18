@@ -56,7 +56,12 @@ app.delete('/deleteList/:id', (req, res) => {
   res.json("deleted");
 })
 
-app.get("/seenlist", (req, res) => {
+app.delete('/deleteHistory/:id', (req, res) => {
+  db("user_content").where({'id': req.params.id}).del().then(console.log("deleted from list"));
+  res.json("deleted");
+})
+
+app.get("/watchhistory", (req, res) => {
   db("user_content")
     .select("*")
     .where({ email: "mathew.anishk@gmail.com" })

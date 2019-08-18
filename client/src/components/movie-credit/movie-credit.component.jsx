@@ -43,7 +43,6 @@ class MovieCredit extends Component {
         <div>
           <div className="card-deck">
             {cast && cast.map(item => <Movie key={item.id} item={item} />)}
-            )}
           </div>
         </div>
       </React.Fragment>

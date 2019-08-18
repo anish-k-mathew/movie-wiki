@@ -4,7 +4,7 @@ import HomePage from "./pages/homepage/homepage.component";
 import Movies from "./movie-list/movie-list.component";
 import Movie from "./movie/movie.component";
 import Watchlist from "./Watchlist";
-import Seenlist from "./Seenlist";
+import WatchHistory from "./WatchHistory";
 import Castlist from "./cast-list/cast-list.component";
 
 import Header from "./layout/Header";
@@ -21,7 +21,7 @@ const App = () => (
         <Route exact path="/movies" component={Movies} />
         <Route exact path="/movies/:id" component={Movie} />
         <Route exact path="/watch" component={Watchlist} />
-        <Route exact path="/seen" component={Seenlist} />
+        <Route exact path="/watchhistory" component={WatchHistory} />
         <Route exact path="/cast" component={Castlist} />
         <Route exact path="/persons/:personId" component={MovieCredit} />
       </Switch>

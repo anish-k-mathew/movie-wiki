@@ -14,12 +14,16 @@ class Cast extends Component {
             src={`https://image.tmdb.org/t/p/original${profile_path}`}
             alt="Card cap"
           />
+          <button className="btn btn-danger align-self-end btn-sm btn-block"
+          >
           <Link to={`persons/${id}`}>View Movies for this Person</Link>
+
+          </button>
 
         </div>
       </div>
-    );
-  }
+      );
+    }
 }
 
 export default Cast;

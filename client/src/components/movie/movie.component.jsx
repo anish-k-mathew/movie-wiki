@@ -42,24 +42,24 @@ class Movie extends Component {
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           alt="Card cap"
         />
-        <div className="card-body">
+        <div className="card-body d-flex flex-column">
           <h5 className="card-title">{this.props.item.title}</h5>
           <p className="card-text">{this.props.item.overview}</p>
-          <div className="d-flex flex-wrap">
+          <p class="card-text"><small class="text-muted">Released on {this.props.item.release_date}</small></p>
+
             <button
-              className="btn btn-warning"
-              onClick={() => this.onAddToList(this.props.item)}
+            className="btn btn-light btn-sm btn-block"
+            onClick={() => this.onAddToList(this.props.item)}
             >
               Add to Watchlist
             </button>
 
             <button
-              className="btn btn-danger"
+              className="btn btn-danger btn-sm btn-block"
               onClick={() => this.onSeenMovie(this.props.item)}
             >
-              Already Watched
+              Watched it
             </button>
-          </div>
         </div>
         <div />
       </div>
