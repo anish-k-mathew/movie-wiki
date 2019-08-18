@@ -24,7 +24,33 @@ class MovieDetail extends Component {
     this.setState({ movieId });
     this.getMovieDetail(movieId);
   }
+  onSeenMovie = movieDetail => {
+    fetch("/movie", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contentId: movieDetail.id,
+        title: movieDetail.title,
+        description: movieDetail.overview,
+        email: "mathew.anishk@gmail.com",
+        contentType: "Movie"
+      })
+    });
+  };
 
+  onAddToList = movieDetail => {
+    fetch("/watch", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contentId: movieDetail.id,
+        title: movieDetail.title,
+        description: movieDetail.overview,
+        email: "mathew.anishk@gmail.com",
+        contentType: "Movie"
+      })
+    });
+  };
   render() {
     const { movieDetail } = this.state;
 
@@ -51,7 +77,7 @@ class MovieDetail extends Component {
             <p class="card-text">Released on {movieDetail.release_date}</p>
             <p>Runtime: {movieDetail.runtime} minutes</p>
             <img
-              className="card-img-top"
+              className="card-img-bottom"
               src={`https://image.tmdb.org/t/p/original${
                 movieDetail.poster_path
               }`}
@@ -61,14 +87,14 @@ class MovieDetail extends Component {
 
           <button
             className="btn btn-light btn-sm btn-block"
-            onClick={() => this.onAddToList(this.props.item)}
+            onClick={() => this.onAddToList(this.state.movieDetail)}
           >
             Add to Watchlist
           </button>
 
           <button
             className="btn btn-danger btn-sm btn-block"
-            onClick={() => this.onSeenMovie(this.props.item)}
+            onClick={() => this.onSeenMovie(this.state.movieDetail)}
           >
             Watched it
           </button>
