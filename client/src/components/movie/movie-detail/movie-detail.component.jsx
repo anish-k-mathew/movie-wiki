@@ -46,10 +46,17 @@ class MovieDetail extends Component {
             <p className="card-text">
               Release Date: {movieDetail.release_date}
             </p>
-            <p className="card-text">Budget: {movieDetail.budget}</p>
-            <p className="card-text">Revenue: {movieDetail.revenue}</p>
+            <p className="card-text">Budget: ${movieDetail.budget}</p>
+            <p className="card-text">Revenue: ${movieDetail.revenue}</p>
             <p class="card-text">Released on {movieDetail.release_date}</p>
             <p>Runtime: {movieDetail.runtime} minutes</p>
+            <img
+              className="card-img-top"
+              src={`https://image.tmdb.org/t/p/original${
+                movieDetail.poster_path
+              }`}
+              alt="Card cap"
+            />
           </div>
 
           <button
