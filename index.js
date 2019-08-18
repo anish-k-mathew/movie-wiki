@@ -61,7 +61,7 @@ app.delete('/deleteHistory/:id', (req, res) => {
   res.json("deleted");
 })
 
-app.get("/watchhistory", (req, res) => {
+app.get("/history", (req, res) => {
   db("user_content")
     .select("*")
     .where({ email: "mathew.anishk@gmail.com" })

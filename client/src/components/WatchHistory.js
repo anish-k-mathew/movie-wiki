@@ -11,7 +11,7 @@ class WatchHistory extends Component {
   }
 
   componentDidMount() {
-    fetch("/watchhistory")
+    fetch("/history")
       .then(res => res.json())
       .then(result => {
         this.setState({
