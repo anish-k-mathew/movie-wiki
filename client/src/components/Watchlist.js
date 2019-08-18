@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 class Watchlist extends Component {
   constructor() {
@@ -22,10 +22,10 @@ class Watchlist extends Component {
   }
 
   onRemoveFromList = id => {
-    axios.delete(`/deleteList/${id}`)
-    .then(res => {
-      console.log('deleted fool')
-    })
+    axios.delete(`/deleteList/${id}`).then(res => {
+      console.log("deleted fool");
+      this.componentDidMount()
+    });
   };
 
   render() {
@@ -34,19 +34,23 @@ class Watchlist extends Component {
       return <div>Loading ... </div>;
     } else {
       return (
-        <div>
-          {watchlist.map(item => (
-            <div key={item.id}>
-              <p>{item.title}</p>
-              <p>{item.description}</p>
-              <button
-                className="btn btn-warning"
-                onClick={() => this.onRemoveFromList(item.id)}
-              >
-                Remove from watchlist
-              </button>
-            </div>
-          ))}
+        <div className="card-deck">
+          <div className="card">
+            {watchlist &&
+              watchlist.map(item => (
+                <div className="card-body" key={item.id}>
+                  <h5 className="card-title">{item.title}</h5>
+                  <p className="card-text">{item.description}</p>
+
+                  <button
+                    className="btn btn-warning"
+                    onClick={() => this.onRemoveFromList(item.id)}
+                  >
+                    Remove from watchlist
+                  </button>
+                </div>
+              ))}
+          </div>
         </div>
       );
     }

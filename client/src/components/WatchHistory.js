@@ -24,6 +24,7 @@ class WatchHistory extends Component {
   onRemoveFromHistory = id => {
     axios.delete(`/deleteHistory/${id}`).then(res => {
       console.log("deleted fool");
+      this.componentDidMount()
     });
   };
 
@@ -33,25 +34,23 @@ class WatchHistory extends Component {
       return <div>Loading ... </div>;
     } else {
       return (
-        <React.Fragment>
-          <div>
-            <div className="card-deck">
-              {watchhistory &&
-                watchhistory.map(item => (
-                  <div key={item.id}>
-                    <p>{item.title}</p>
-                    <p>{item.description}</p>
-                    <button
-                      className="btn btn-warning"
-                      onClick={() => this.onRemoveFromHistory(item.id)}
-                    >
-                      Remove from watchlist
-                    </button>
-                  </div>
-                ))}
-            </div>
+        <div className="card-deck">
+          <div className="card">
+            {watchhistory &&
+              watchhistory.map(item => (
+                <div classname="card-body" key={item.id}>
+                  <h5 className="card-title">{item.title}</h5>
+                  <p className="card-text">{item.description}</p>
+                  <button
+                    className="btn btn-warning"
+                    onClick={() => this.onRemoveFromHistory(item.id)}
+                  >
+                    Remove from watchlist
+                  </button>
+                </div>
+              ))}
           </div>
-        </React.Fragment>
+        </div>
       );
     }
   }
