@@ -1,9 +1,10 @@
 import React from "react";
+import './homepage.styles.scss'
 
 const HomePage = () => (
-  <div className="jumbotron">
-    <h1>MovieWiki</h1>
-    <p>
+  <div className="jumbotron text-center bg-dark">
+    <h1 className="text-light">MovieWiki</h1>
+    <p className="text-light">
       A place where you can search for any movie ever produced and build your
       watchlist, provide ratings & reviews, suggest movies to friends, etc.
     </p>
