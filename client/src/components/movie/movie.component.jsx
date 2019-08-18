@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./movie.style.css";
 
 class Movie extends Component {
   state = {};
@@ -34,33 +35,36 @@ class Movie extends Component {
   render() {
     const { id, poster_path } = this.props.item;
     return (
-      <div className="col-3">
-        <div className="card" key={id}>
-          <img
-            className="card-img-top"
-            src={`https://image.tmdb.org/t/p/original${poster_path}`}
-            alt="Card cap"
-          />
+      <div className="card" key={id}>
+        <img
+          className="card-img-top"
+          src={`https://image.tmdb.org/t/p/original${poster_path}`}
+          alt="Card cap"
+        />
+        <div className="card-body">
+          <h5 className="card-title">{this.props.item.title}</h5>
+          <p className="card-text">{this.props.item.overview}</p>
+          <div className="d-flex flex-wrap">
           <button
-            className="btn btn-warning"
-            onClick={() => this.onAddToList(this.props.item)}
-          >
-            Add to Watchlist
-          </button>
-          <button
-            className="btn btn-primary"
-            onClick={() => this.onSeenMovie(this.props.item)}
-          >
-            Watched
-          </button>
-          <button
-            className="btn btn-success"
-            onClick={() => this.onSeenMovie(this.props.item)}
-          >
-            See More
-          </button>
+              className="btn btn-warning"
+              onClick={() => this.onAddToList(this.props.item)}
+            >
+              Add to Watchlist
+            </button>
+
+            <button
+              className="btn btn-danger"
+              onClick={() => this.onSeenMovie(this.props.item)}
+            >
+              Already Watched
+            </button>
+          </div>
+            
+          </div>
+          <div>
+            
+          </div>
         </div>
-      </div>
     );
   }
 }

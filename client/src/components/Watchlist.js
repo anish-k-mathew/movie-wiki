@@ -27,14 +27,14 @@ class Watchlist extends Component {
       return <div>Loading ... </div>;
     } else {
       return (
-        <ul>
+        <div className="card-deck">
           {watchlist.map(item => (
-            <li key={item.id}>
-              <h5>{item.title}</h5>
+            <div key={item.id}>
+              <h5 className="card-title">{item.title}</h5>
               <h6>{item.description}</h6>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       );
     }
   }

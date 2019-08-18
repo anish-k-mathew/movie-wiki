@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import MovieSearch from "./../movie-search/movie-search.component";
+import ComponentSearch from "../component-search/component-search.component";
 import Movie from "./../movie/movie.component";
+import './../movie/movie.style.css';
 
 const MovieDb = require("moviedb-promise");
 const moviedb = new MovieDb("f7b5dc7f802e943f335a3f26722ddfc4");
@@ -51,16 +52,17 @@ class Movies extends Component {
     const { searchTerm, result } = this.state;
     return (
       <React.Fragment>
-        <MovieSearch
+        <ComponentSearch
           value={searchTerm}
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
+          placeholder="Search Movies by Movie Name"
+
         />
-        <div className="card-deck">
-          <div className="row">
+          <div className='card-deck'>
             {result && result.map(item => <Movie key={item.id} item={item} />)}
           </div>
-        </div>
+        
       </React.Fragment>
     );
   }

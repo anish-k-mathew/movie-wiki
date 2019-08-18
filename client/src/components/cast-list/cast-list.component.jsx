@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CastSearch from "./../cast-search/cast-search.component";
+import ComponentSearch from "../component-search/component-search.component";
 import Cast from "./../cast/cast.component";
 
 const MovieDb = require("moviedb-promise");
@@ -51,13 +51,14 @@ class Castlist extends Component {
     const { searchTerm, result } = this.state;
     return (
       <React.Fragment>
-        <CastSearch
+        <ComponentSearch
           value={searchTerm}
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
+          placeholder="Search Movies by Cast"
         />
-        <div className="card-deck">
-          <div className="row">
+        <div>
+          <div>
             {result && result.map(item => <Cast key={item.id} item={item} />)}
           </div>
         </div>

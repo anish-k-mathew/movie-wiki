@@ -1,7 +1,7 @@
 import React from "react";
 
-const FooterPage = () => {
-  return <footer className="bg-primary fixed-bottom" />;
+const Footer = () => {
+  return <footer />;
 };
 
-export default FooterPage;
+export default Footer;
