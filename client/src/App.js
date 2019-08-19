@@ -15,7 +15,7 @@ import MovieCredit from "./components/movie/movie-credit/movie-credit.component.
 
 const App = () => (
   <Router>
-    <div className="container">
+    <div className="container-fluid">
       <Header />
       <Switch>
         <Route path="/homepage" component={HomePage} />

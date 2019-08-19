@@ -25,8 +25,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-
-app.use("/auth", auth);
 app.post("/movie", (req, res) => {
   db("user_content")
     .insert({
@@ -88,19 +86,6 @@ app.get("/watchlist", (req, res) => {
     });
 });
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.json({
-    message: err.message,
-    error: err
-  });
-});
 
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
