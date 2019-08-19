@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-danger">
+  <nav className="navbar navbar-expand-lg navbar-dark">
     <a className="navbar-brand" href="/homepage">
       MovieWiki
     </a>

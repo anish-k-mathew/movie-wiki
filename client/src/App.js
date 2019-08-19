@@ -1,16 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import HomePage from "./pages/homepage/homepage.component";
-import MovieList from "./movie/movie-list/movie-list.component";
-import MovieDetail from "./movie/movie-detail/movie-detail.component.jsx";
+import HomePage from "./components/pages/homepage/homepage.component";
+import MovieList from "./components/movie/movie-list/movie-list.component";
+import MovieDetail from "./components/movie/movie-detail/movie-detail.component.jsx";
 
-import Watchlist from "./Watchlist";
-import WatchHistory from "./WatchHistory";
-import CastList from "./cast/cast-list/cast-list.component.jsx";
+import Watchlist from "./components/Watchlist";
+import WatchHistory from "./components/WatchHistory";
+import CastList from "./components/cast/cast-list/cast-list.component.jsx";
 
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
-import MovieCredit from "./movie/movie-credit/movie-credit.component.jsx";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import MovieCredit from "./components/movie/movie-credit/movie-credit.component.jsx";
+
 
 const App = () => (
   <Router>

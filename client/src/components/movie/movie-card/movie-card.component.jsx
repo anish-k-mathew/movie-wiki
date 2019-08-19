@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import "./movie-card.style.css";
+import "./movie-card.style.scss";
 
 class MovieCard extends Component {
   state = {};

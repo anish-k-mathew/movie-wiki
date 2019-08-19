@@ -1,12 +1,13 @@
 const express = require("express");
 
-
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const knex = require("knex");
 const path = require("path");
 const config = require("./config/keys");
 const db = knex(config.dbConnection);
+
+const auth = require("./auth");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,6 +25,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+app.use("/auth", auth);
 app.post("/movie", (req, res) => {
   db("user_content")
     .insert({
@@ -83,6 +86,20 @@ app.get("/watchlist", (req, res) => {
     .then(response => {
       return res.json(response);
     });
+});
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.json({
+    message: err.message,
+    error: err
+  });
 });
 
 // Server static assets if in production
