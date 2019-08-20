@@ -10,13 +10,13 @@ class Watchlist extends Component {
     };
   }
 
-  componentDidUpdate() {
-    fetch(`api/list/${this.props.currentUser.email}`)
+  componentDidMount() {
+    fetch(`/api/history/${this.props.currentUser.email}`)
       .then(res => res.json())
       .then(result => {
         this.setState({
           isLoaded: true,
-          watchlist: result
+          watchhistory: result
         });
       });
   }
