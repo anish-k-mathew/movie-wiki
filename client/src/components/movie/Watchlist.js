@@ -43,7 +43,7 @@ class Watchlist extends Component {
                   <p className="card-text">{item.description}</p>
 
                   <button
-                    className="btn btn-warning"
+                    className="btn btn-danger"
                     onClick={() => this.onRemoveFromList(item.id)}
                   >
                     Remove from watchlist

@@ -1,12 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { auth } from "../../firebase/firebase.utils";
 
-const Header = () => (
+const Header = ({ currentUser }) => (
   <nav className="navbar navbar-expand-lg navbar-dark">
     <a className="navbar-brand" href="/homepage">
       MovieWiki
     </a>
     <button
-    className="navbar-toggler"
+      className="navbar-toggler"
       type="button"
       data-toggle="collapse"
       data-target="#navbarNav"
@@ -33,14 +36,34 @@ const Header = () => (
             Watchlist
           </a>
         </li>
+
         <li className="nav-item">
           <a className="nav-link" href="/watchhistory">
             History
           </a>
         </li>
+
+        {currentUser ? (
+          <li className="nav-item">
+            <div
+              className="nav-link"
+              onClick={() => auth.signOut()}
+            >
+              Sign Out
+            </div>
+          </li>
+        ) : (
+          <a className="nav-link" href="/signin">
+            Sign in
+          </a>
+        )}
       </ul>
     </div>
   </nav>
 );
 
-export default Header;
+const mapStateToProps = ({ user: { currentUser } }) => ({
+  currentUser
+});
+
+export default connect(mapStateToProps)(Header);

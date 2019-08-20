@@ -1,6 +1,8 @@
 # NodeJS specific #
 node_modules/
 
+.env
+
 config/dev.js
 
-client/src/config/dev.js
+client/.env
