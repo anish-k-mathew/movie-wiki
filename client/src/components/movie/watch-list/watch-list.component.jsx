@@ -10,9 +10,8 @@ class Watchlist extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log(this.props);
-    fetch(`/watchlist`)
+  componentDidUpdate() {
+    fetch(`api/list/${this.props.currentUser.email}`)
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -23,9 +22,8 @@ class Watchlist extends Component {
   }
 
   onRemoveFromList = id => {
-    axios.delete(`/deleteList/${id}`).then(res => {
-      console.log('deleted fool');
-      this.componentDidMount();
+    axios.delete(`api/list/${id}`).then(res => {
+      this.componentDidUpdate();
     });
   };
 

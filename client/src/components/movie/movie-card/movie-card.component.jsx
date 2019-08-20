@@ -8,7 +8,7 @@ class MovieCard extends Component {
   state = {};
 
   onSeenMovie = item => {
-    fetch('/movie', {
+    fetch('/api/movie', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -22,7 +22,7 @@ class MovieCard extends Component {
   };
 
   onAddToList = item => {
-    fetch('/watch', {
+    fetch('/api/watch', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -36,7 +36,7 @@ class MovieCard extends Component {
   };
 
   onMovieDetail = item => {
-    fetch('/watch', {
+    fetch('/api/watch', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

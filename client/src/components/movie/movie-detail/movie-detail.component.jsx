@@ -74,7 +74,7 @@ class MovieDetail extends Component {
             </p>
             <p className='card-text'>Budget: ${movieDetail.budget}</p>
             <p className='card-text'>Revenue: ${movieDetail.revenue}</p>
-            <p class='card-text'>Released on {movieDetail.release_date}</p>
+            <p className='card-text'>Released on {movieDetail.release_date}</p>
             <p>Runtime: {movieDetail.runtime} minutes</p>
             <img
               className='card-img-bottom'

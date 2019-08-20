@@ -26,7 +26,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.post('/movie', (req, res) => {
+app.post('/api/movie', (req, res) => {
   db('user_content')
     .insert({
       email: req.body.email,
@@ -40,7 +40,7 @@ app.post('/movie', (req, res) => {
   res.json(req.body);
 });
 
-app.post('/watch', (req, res) => {
+app.post('/api/watch', (req, res) => {
   db('user_content_watch_list')
     .insert({
       email: req.body.email,
@@ -53,7 +53,7 @@ app.post('/watch', (req, res) => {
   res.json(req.body);
 });
 
-app.delete('/deleteList/:id', (req, res) => {
+app.delete('/api/list/:id', (req, res) => {
   db('user_content_watch_list')
     .where({ id: req.params.id })
     .del()
@@ -61,7 +61,7 @@ app.delete('/deleteList/:id', (req, res) => {
   res.json('deleted');
 });
 
-app.delete('/deleteHistory/:id', (req, res) => {
+app.delete('/api/history/:id', (req, res) => {
   db('user_content')
     .where({ id: req.params.id })
     .del()
@@ -69,7 +69,7 @@ app.delete('/deleteHistory/:id', (req, res) => {
   res.json('deleted');
 });
 
-app.get('/history/:email', (req, res) => {
+app.get('/api/history/:email', (req, res) => {
   db('user_content')
     .select('*')
     .where({ email: req.params.email })
@@ -78,7 +78,7 @@ app.get('/history/:email', (req, res) => {
     });
 });
 
-app.get('/watchlist/:email', (req, res) => {
+app.get('/api/list/:email', (req, res) => {
   db('user_content_watch_list')
     .select('*')
     .where({ email: req.params.email })

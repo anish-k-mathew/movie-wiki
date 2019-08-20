@@ -11,14 +11,8 @@ class WatchHistory extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log('In component did mount');
-
-    console.log(this.props);
-  }
-
   componentDidUpdate() {
-    fetch(`/history/${this.props.currentUser.email}`)
+    fetch(`/api/history/${this.props.currentUser.email}`)
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -29,8 +23,8 @@ class WatchHistory extends Component {
   }
 
   onRemoveFromHistory = id => {
-    axios.delete(`/deleteHistory/${id}`).then(res => {
-      this.componentDidMount();
+    axios.delete(`/api/history/${id}`).then(res => {
+      this.componentDidUpdate();
     });
   };
 
