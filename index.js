@@ -8,7 +8,6 @@ const config = require("./config/keys");
 const db = knex(config.dbConnection);
 require('dotenv').config()
 
-console.log('api key isssss ' + process.env.FIRE_API_KEY)
 const auth = require("./auth");
 
 const app = express();
