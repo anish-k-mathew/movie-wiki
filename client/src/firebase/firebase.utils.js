@@ -13,7 +13,6 @@ const config = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIRE_APP_ID,
 };
-console.log('api key isssss ' + process.env.REACT_APP_FIRE_API_KEY)
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) {
