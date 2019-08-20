@@ -1,14 +1,14 @@
-const express = require("express");
+const express = require('express');
 
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const knex = require("knex");
-const path = require("path");
-const config = require("./config/keys");
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const knex = require('knex');
+const path = require('path');
+const config = require('./config/keys');
 const db = knex(config.dbConnection);
-require('dotenv').config()
+require('dotenv').config();
 
-const auth = require("./auth");
+const auth = require('./auth');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,16 +18,16 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
   res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
   );
   next();
 });
 
-app.post("/movie", (req, res) => {
-  db("user_content")
+app.post('/movie', (req, res) => {
+  db('user_content')
     .insert({
       email: req.body.email,
       ext_content_id: req.body.contentId,
@@ -36,12 +36,12 @@ app.post("/movie", (req, res) => {
       description: req.body.description,
       last_viewed_at: new Date()
     })
-    .then(console.log("added movie"));
+    .then(console.log('added movie'));
   res.json(req.body);
 });
 
-app.post("/watch", (req, res) => {
-  db("user_content_watch_list")
+app.post('/watch', (req, res) => {
+  db('user_content_watch_list')
     .insert({
       email: req.body.email,
       ext_content_id: req.body.contentId,
@@ -49,52 +49,51 @@ app.post("/watch", (req, res) => {
       title: req.body.title,
       description: req.body.description
     })
-    .then(console.log("added to watchlist"));
+    .then(console.log('added to watchlist'));
   res.json(req.body);
 });
 
-app.delete("/deleteList/:id", (req, res) => {
-  db("user_content_watch_list")
+app.delete('/deleteList/:id', (req, res) => {
+  db('user_content_watch_list')
     .where({ id: req.params.id })
     .del()
-    .then(console.log("deleted from list"));
-  res.json("deleted");
+    .then(console.log('deleted from list'));
+  res.json('deleted');
 });
 
-app.delete("/deleteHistory/:id", (req, res) => {
-  db("user_content")
+app.delete('/deleteHistory/:id', (req, res) => {
+  db('user_content')
     .where({ id: req.params.id })
     .del()
-    .then(console.log("deleted from list"));
-  res.json("deleted");
+    .then(console.log('deleted from list'));
+  res.json('deleted');
 });
 
-app.get("/history", (req, res) => {
-  db("user_content")
-    .select("*")
-    .where({ email: "mathew.anishk@gmail.com" })
+app.get('/history/:email', (req, res) => {
+  db('user_content')
+    .select('*')
+    .where({ email: req.params.email })
     .then(response => {
       return res.json(response);
     });
 });
 
-app.get("/watchlist", (req, res) => {
-  db("user_content_watch_list")
-    .select("*")
-    .where({ email: "mathew.anishk@gmail.com" })
+app.get('/watchlist/:email', (req, res) => {
+  db('user_content_watch_list')
+    .select('*')
+    .where({ email: req.params.email })
     .then(response => {
       return res.json(response);
     });
 });
-
 
 // Server static assets if in production
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   // Set static folder
-  app.use(express.static("client/build"));
+  app.use(express.static('client/build'));
 
-  app.get("/*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  app.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
 

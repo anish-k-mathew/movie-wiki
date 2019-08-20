@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import axios from "axios";
-
+import React, { Component } from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
 class Watchlist extends Component {
   constructor() {
     super();
@@ -11,7 +11,8 @@ class Watchlist extends Component {
   }
 
   componentDidMount() {
-    fetch("/watchlist")
+    console.log(this.props);
+    fetch(`/watchlist`)
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -23,8 +24,8 @@ class Watchlist extends Component {
 
   onRemoveFromList = id => {
     axios.delete(`/deleteList/${id}`).then(res => {
-      console.log("deleted fool");
-      this.componentDidMount()
+      console.log('deleted fool');
+      this.componentDidMount();
     });
   };
 
@@ -34,16 +35,16 @@ class Watchlist extends Component {
       return <div>Loading ... </div>;
     } else {
       return (
-        <div className="card-deck">
-          <div className="card">
+        <div className='card-deck'>
+          <div className='card'>
             {watchlist &&
               watchlist.map(item => (
-                <div className="card-body" key={item.id}>
-                  <h5 className="card-title">{item.title}</h5>
-                  <p className="card-text">{item.description}</p>
+                <div className='card-body' key={item.id}>
+                  <h5 className='card-title'>{item.title}</h5>
+                  <p className='card-text'>{item.description}</p>
 
                   <button
-                    className="btn btn-danger"
+                    className='btn btn-danger'
                     onClick={() => this.onRemoveFromList(item.id)}
                   >
                     Remove from watchlist
@@ -57,4 +58,8 @@ class Watchlist extends Component {
   }
 }
 
-export default Watchlist;
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
+export default connect(mapStateToProps)(Watchlist);

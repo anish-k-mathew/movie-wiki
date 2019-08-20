@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-const MovieDb = require("moviedb-promise");
+const MovieDb = require('moviedb-promise');
 
-const moviedb = new MovieDb("f7b5dc7f802e943f335a3f26722ddfc4");
+const moviedb = new MovieDb('f7b5dc7f802e943f335a3f26722ddfc4');
 
 class MovieDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieDetail: "",
+      movieDetail: '',
       movieId: props.match.params.movieId
     };
     this.getMovieDetail = this.getMovieDetail.bind(this);
@@ -25,29 +25,29 @@ class MovieDetail extends Component {
     this.getMovieDetail(movieId);
   }
   onSeenMovie = movieDetail => {
-    fetch("/movie", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
+    fetch('/movie', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contentId: movieDetail.id,
         title: movieDetail.title,
         description: movieDetail.overview,
-        email: "mathew.anishk@gmail.com",
-        contentType: "Movie"
+        email: this.props.currentUser.email,
+        contentType: 'Movie'
       })
     });
   };
 
   onAddToList = movieDetail => {
-    fetch("/watch", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
+    fetch('/watch', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contentId: movieDetail.id,
         title: movieDetail.title,
         description: movieDetail.overview,
-        email: "mathew.anishk@gmail.com",
-        contentType: "Movie"
+        email: this.props.currentUser.email,
+        contentType: 'Movie'
       })
     });
   };
@@ -56,44 +56,44 @@ class MovieDetail extends Component {
 
     return (
       <React.Fragment>
-        <div className="card">
-          <div className="card-body">
+        <div className='card'>
+          <div className='card-body'>
             <img
-              className="card-img-top"
+              className='card-img-top'
               src={`https://image.tmdb.org/t/p/original${
                 movieDetail.backdrop_path
               }`}
-              alt="Card cap"
+              alt='Card cap'
             />
 
-            <h5 className="card-title">{movieDetail.title}</h5>
-            <p className="card-text">{movieDetail.tagline}</p>
-            <p className="card-text">Overview: {movieDetail.overview}</p>
-            <p className="card-text">
+            <h5 className='card-title'>{movieDetail.title}</h5>
+            <p className='card-text'>{movieDetail.tagline}</p>
+            <p className='card-text'>Overview: {movieDetail.overview}</p>
+            <p className='card-text'>
               Release Date: {movieDetail.release_date}
             </p>
-            <p className="card-text">Budget: ${movieDetail.budget}</p>
-            <p className="card-text">Revenue: ${movieDetail.revenue}</p>
-            <p class="card-text">Released on {movieDetail.release_date}</p>
+            <p className='card-text'>Budget: ${movieDetail.budget}</p>
+            <p className='card-text'>Revenue: ${movieDetail.revenue}</p>
+            <p class='card-text'>Released on {movieDetail.release_date}</p>
             <p>Runtime: {movieDetail.runtime} minutes</p>
             <img
-              className="card-img-bottom"
+              className='card-img-bottom'
               src={`https://image.tmdb.org/t/p/original${
                 movieDetail.poster_path
               }`}
-              alt="Card cap"
+              alt='Card cap'
             />
           </div>
 
           <button
-            className="btn btn-light btn-sm btn-block"
+            className='btn btn-light btn-sm btn-block'
             onClick={() => this.onAddToList(this.state.movieDetail)}
           >
             Add to Watchlist
           </button>
 
           <button
-            className="btn btn-danger btn-sm btn-block"
+            className='btn btn-danger btn-sm btn-block'
             onClick={() => this.onSeenMovie(this.state.movieDetail)}
           >
             Watched it
