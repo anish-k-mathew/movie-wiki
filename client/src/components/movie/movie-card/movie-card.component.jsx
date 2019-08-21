@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import './movie-card.style.scss';
 
 class MovieCard extends Component {
-  state = {};
-
   onSeenMovie = item => {
     fetch('/api/movie', {
       method: 'post',
@@ -91,8 +89,9 @@ class MovieCard extends Component {
     );
   }
 }
-const mapStateToProps = ({ user: { currentUser } }) => ({
-  currentUser
+
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
 });
 
 export default connect(mapStateToProps)(MovieCard);

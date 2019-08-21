@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 const Header = ({ currentUser }) => (
   <nav className='navbar navbar-expand-lg navbar-dark'>
+    <i class='fas fa-video' />{' '}
     <a className='navbar-brand' href='/homepage'>
       MovieWiki
     </a>
@@ -30,17 +31,21 @@ const Header = ({ currentUser }) => (
             Cast Search
           </a>
         </li>
-        <li className='nav-item'>
-          <a className='nav-link' href='/watch'>
-            Watchlist
-          </a>
-        </li>
 
-        <li className='nav-item'>
-          <a className='nav-link' href='/watchhistory'>
-            History
-          </a>
-        </li>
+        {currentUser ? (
+          <li className='nav-item'>
+            <a className='nav-link' href='/watch'>
+              Watch List
+            </a>
+          </li>
+        ) : null}
+        {currentUser ? (
+          <li className='nav-item'>
+            <a className='nav-link' href='/watchhistory'>
+              Watch History
+            </a>
+          </li>
+        ) : null}
 
         {currentUser ? (
           <li className='nav-item'>

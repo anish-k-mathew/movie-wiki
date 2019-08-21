@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import WatchItem from '../watch-item/watch-item.component';
 class Watchlist extends Component {
   constructor() {
     super();
@@ -38,19 +39,7 @@ class Watchlist extends Component {
         <div className='card-deck'>
           <div className='card'>
             {watchlist &&
-              watchlist.map(item => (
-                <div className='card-body' key={item.id}>
-                  <h5 className='card-title'>{item.title}</h5>
-                  <p className='card-text'>{item.description}</p>
-
-                  <button
-                    className='btn btn-danger'
-                    onClick={() => this.onRemoveFromList(item.id)}
-                  >
-                    Remove from watchlist
-                  </button>
-                </div>
-              ))}
+              watchlist.map(item => <WatchItem key={item.id} item={item} />)}
           </div>
         </div>
       );
