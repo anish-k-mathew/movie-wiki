@@ -49,7 +49,6 @@ class MovieCard extends Component {
 
   render() {
     const { id, poster_path } = this.props.item;
-    console.log(this.props);
     return (
       <div className='card' key={id}>
         <img

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import WatchItem from '../watch-item/watch-item.component';
 class Watchlist extends Component {
   constructor() {
     super();
@@ -29,7 +28,6 @@ class Watchlist extends Component {
       this.componentDidUpdate(this.props.currentUser);
     });
   };
-
   render() {
     const { watchlist, isLoaded } = this.state;
     if (!isLoaded) {
@@ -39,7 +37,18 @@ class Watchlist extends Component {
         <div className='card-deck'>
           <div className='card'>
             {watchlist &&
-              watchlist.map(item => <WatchItem key={item.id} item={item} />)}
+              watchlist.map(item => (
+                <div className='card-body' key={item.id}>
+                  <h5 className='card-title'>{item.title}</h5>
+                  <p className='card-text'>{item.description}</p>
+                  <button
+                    className='btn btn-light'
+                    onClick={() => this.onRemoveFromHistory(item.id)}
+                  >
+                    Remove from watch history
+                  </button>
+                </div>
+              ))}
           </div>
         </div>
       );
