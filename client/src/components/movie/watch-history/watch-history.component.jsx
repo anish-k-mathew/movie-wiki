@@ -10,21 +10,22 @@ class WatchHistory extends Component {
       isLoaded: false
     };
   }
-
-  componentDidMount() {
-    fetch(`/api/history/${this.props.currentUser.email}`)
-      .then(res => res.json())
-      .then(result => {
-        this.setState({
-          isLoaded: true,
-          watchhistory: result
+  componentDidUpdate(prevProps) {
+    if (this.props.currentUser !== prevProps.currentUser) {
+      fetch(`api/history/${this.props.currentUser.email}`)
+        .then(res => res.json())
+        .then(result => {
+          this.setState({
+            isLoaded: true,
+            watchhistory: result
+          });
         });
-      });
+    }
   }
 
   onRemoveFromHistory = id => {
     axios.delete(`/api/history/${id}`).then(res => {
-      this.componentDidMount();
+      this.componentDidUpdate(this.props.currentUser);
     });
   };
 

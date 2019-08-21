@@ -10,20 +10,22 @@ class Watchlist extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch(`/api/history/${this.props.currentUser.email}`)
-      .then(res => res.json())
-      .then(result => {
-        this.setState({
-          isLoaded: true,
-          watchhistory: result
+  componentDidUpdate(prevProps) {
+    if (this.props.currentUser !== prevProps.currentUser) {
+      fetch(`api/list/${this.props.currentUser.email}`)
+        .then(res => res.json())
+        .then(result => {
+          this.setState({
+            isLoaded: true,
+            watchlist: result
+          });
         });
-      });
+    }
   }
 
   onRemoveFromList = id => {
     axios.delete(`api/list/${id}`).then(res => {
-      this.componentDidUpdate();
+      this.componentDidUpdate(this.props.currentUser);
     });
   };
 
