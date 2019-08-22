@@ -41,15 +41,13 @@ class WatchHistory extends Component {
           {watchhistory &&
             watchhistory.map(item => (
               <div className='card' key={item.id}>
-                <div className='card-body'>
-                  <h5 className='card-title'>{item.title}</h5>
-                  <button
-                    className='btn btn-light'
-                    onClick={() => this.onRemoveFromHistory(item.id)}
-                  >
-                    Remove from watch history
-                  </button>
-                </div>
+                <h5 className='card-title'>{item.title}</h5>
+                <button
+                  className='btn btn-danger'
+                  onClick={() => this.onRemoveFromHistory(item.id)}
+                >
+                  Remove from history
+                </button>
               </div>
             ))}
         </div>
