@@ -57,48 +57,44 @@ class MovieDetail extends Component {
     return (
       <React.Fragment>
         <div className='card'>
-          <div className='card-body'>
-            <img
-              className='card-img-top'
-              src={`https://image.tmdb.org/t/p/original${
-                movieDetail.backdrop_path
-              }`}
-              alt='Card cap'
-            />
+          <img
+            className='card-img-top'
+            src={`https://image.tmdb.org/t/p/original${
+              movieDetail.backdrop_path
+            }`}
+            alt='Card cap'
+          />
 
-            <h5 className='card-title'>{movieDetail.title}</h5>
-            <p className='card-text'>{movieDetail.tagline}</p>
-            <p className='card-text'>Overview: {movieDetail.overview}</p>
-            <p className='card-text'>
-              Release Date: {movieDetail.release_date}
-            </p>
-            <p className='card-text'>Budget: ${movieDetail.budget}</p>
-            <p className='card-text'>Revenue: ${movieDetail.revenue}</p>
-            <p className='card-text'>Released on {movieDetail.release_date}</p>
-            <p>Runtime: {movieDetail.runtime} minutes</p>
-            <img
-              className='card-img-bottom'
-              src={`https://image.tmdb.org/t/p/original${
-                movieDetail.poster_path
-              }`}
-              alt='Card cap'
-            />
-          </div>
-
-          <button
-            className='btn btn-light btn-sm btn-block'
-            onClick={() => this.onAddToList(this.state.movieDetail)}
-          >
-            Add to Watchlist
-          </button>
-
-          <button
-            className='btn btn-danger btn-sm btn-block'
-            onClick={() => this.onSeenMovie(this.state.movieDetail)}
-          >
-            Watched it
-          </button>
+          <h5 className='card-title'>{movieDetail.title}</h5>
+          <p className='card-text'>{movieDetail.tagline}</p>
+          <p className='card-text'>Overview: {movieDetail.overview}</p>
+          <p className='card-text'>Release Date: {movieDetail.release_date}</p>
+          <p className='card-text'>Budget: ${movieDetail.budget}</p>
+          <p className='card-text'>Revenue: ${movieDetail.revenue}</p>
+          <p className='card-text'>Released on {movieDetail.release_date}</p>
+          <p>Runtime: {movieDetail.runtime} minutes</p>
+          <img
+            className='card-img-bottom'
+            src={`https://image.tmdb.org/t/p/original${
+              movieDetail.poster_path
+            }`}
+            alt='Card cap'
+          />
         </div>
+
+        <button
+          className='btn btn-light btn-sm btn-block'
+          onClick={() => this.onAddToList(this.state.movieDetail)}
+        >
+          Add to Watchlist
+        </button>
+
+        <button
+          className='btn btn-danger btn-sm btn-block'
+          onClick={() => this.onSeenMovie(this.state.movieDetail)}
+        >
+          Watched it
+        </button>
       </React.Fragment>
     );
   }
