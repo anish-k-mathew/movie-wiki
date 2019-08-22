@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import './trending-movies.styles.scss';
-
 class TrendingMovieList extends Component {
   constructor(props) {
     super(props);
@@ -24,14 +22,14 @@ class TrendingMovieList extends Component {
   }
   render() {
     return (
-      <div className='card-deck'>
+      <div className='row'>
         {this.state.results.map(item => (
-          <div className='card' key={item.id}>
+          <div className='col-lg-2 p-1' key={item.id}>
             <Link to={`/movies/${item.id}`}>
               <img
-                className='card-img-top'
                 src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                 alt='Card cap'
+                className='img-fluid rounded'
               />
             </Link>
           </div>

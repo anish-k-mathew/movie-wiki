@@ -50,10 +50,9 @@ class MovieCard extends Component {
   render() {
     const { id, poster_path } = this.props.item;
     return (
-      <div className='card' key={id}>
+      <div key={id}>
         <Link to={`/movies/${id}`}>
           <img
-            className='card-img-top'
             src={`https://image.tmdb.org/t/p/original${poster_path}`}
             alt='Card cap'
           />

@@ -10,7 +10,8 @@ class MovieDetail extends Component {
     super(props);
     this.state = {
       movieDetail: '',
-      movieId: props.match.params.movieId
+      movieId: props.match.params.movieId,
+      reviews: ''
     };
     this.getMovieDetail = this.getMovieDetail.bind(this);
   }
@@ -19,6 +20,10 @@ class MovieDetail extends Component {
     const response = await moviedb.movieInfo({ id: movieId });
     this.setState({ movieDetail: response });
     console.log(response);
+
+    const reviewResponse = await moviedb.movieReviews({ id: movieId });
+    this.setState({ reviews: reviewResponse });
+    console.log(reviewResponse);
   };
   componentDidMount() {
     const { movieId } = this.state;
@@ -60,47 +65,30 @@ class MovieDetail extends Component {
 
     console.log(imageUrl);
     return (
-      <div className='movie-detail'>
-        <div className='fullscreen'>
-          <div
-            className='background-img'
-            style={{
-              backgroundImage: `url(${imageUrl})`,
-              backgroundPosition: 'center',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              width: '1024px',
-
-              height: '100%'
-            }}
+      <div className='card bg-dark text-white'>
+        <img class='card-img' src={imageUrl} alt='Card mod' />
+        <div class='card-img-overlay col-3'>
+          <p className='h3'>{movieDetail.title}</p>
+          <p className='h6'>{movieDetail.tagline}</p>
+          <p className='h6'>Overview: {movieDetail.overview}</p>
+          <p className='h6'>Release Date: {movieDetail.release_date}</p>
+          <p className='h6'>Budget: ${movieDetail.budget}</p>
+          <p className='h6'>Revenue: ${movieDetail.revenue}</p>
+          <p className='h6'>Released on {movieDetail.release_date}</p>
+          <p className='h6'>Runtime: {movieDetail.runtime} minutes</p>
+          <button
+            className='btn btn-light btn-sm'
+            onClick={() => this.onAddToList(this.state.movieDetail)}
           >
-            <div className='card-body'>
-              <h5 className='title'>{movieDetail.title}</h5>
-              <p className='subtitle'>{movieDetail.tagline}</p>
-              <p className='subtitle'>Overview: {movieDetail.overview}</p>
-              <p className='subtitle'>
-                Release Date: {movieDetail.release_date}
-              </p>
-              <p className='subtitle'>Budget: ${movieDetail.budget}</p>
-              <p className='subtitle'>Revenue: ${movieDetail.revenue}</p>
-              <p className='subtitle'>Released on {movieDetail.release_date}</p>
-              <p className='subtitle'>Runtime: {movieDetail.runtime} minutes</p>
+            Add to Watchlist
+          </button>
 
-              <button
-                className='btn btn-light btn-sm'
-                onClick={() => this.onAddToList(this.state.movieDetail)}
-              >
-                Add to Watchlist
-              </button>
-
-              <button
-                className='btn btn-danger btn-sm'
-                onClick={() => this.onSeenMovie(this.state.movieDetail)}
-              >
-                Watched it
-              </button>
-            </div>
-          </div>
+          <button
+            className='btn btn-danger btn-sm'
+            onClick={() => this.onSeenMovie(this.state.movieDetail)}
+          >
+            Watched it
+          </button>
         </div>
       </div>
     );

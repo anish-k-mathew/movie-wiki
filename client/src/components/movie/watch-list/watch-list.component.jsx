@@ -36,11 +36,11 @@ class Watchlist extends Component {
       return <div>Please sign in... </div>;
     } else {
       return (
-        <div className='card-deck'>
+        <div>
           {watchlist &&
             watchlist.map(item => (
-              <div className='card' key={item.id}>
-                <p className='card-title'>{item.title}</p>
+              <div key={item.id}>
+                <p>{item.title}</p>
                 <button
                   className='btn btn-danger btn-sm'
                   onClick={() => this.onRemoveFromList(item.id)}
