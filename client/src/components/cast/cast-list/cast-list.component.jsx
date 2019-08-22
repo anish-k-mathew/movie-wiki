@@ -57,11 +57,8 @@ class CastList extends Component {
           onSubmit={this.onSearchSubmit}
           placeholder='Search Movies by Cast'
         />
-        <div>
-          <div>
-            {result &&
-              result.map(item => <CastCard key={item.id} item={item} />)}
-          </div>
+        <div className='card-deck'>
+          {result && result.map(item => <CastCard key={item.id} item={item} />)}
         </div>
       </React.Fragment>
     );

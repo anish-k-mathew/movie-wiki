@@ -51,12 +51,15 @@ class MovieCard extends Component {
     const { id, poster_path } = this.props.item;
     return (
       <div className='card' key={id}>
-        <img
-          className='card-img-top'
-          src={`https://image.tmdb.org/t/p/original${poster_path}`}
-          alt='Card cap'
-        />
-        <div className='card-body d-flex flex-column'>
+        <Link to={`/movies/${id}`}>
+          <img
+            className='card-img-top'
+            src={`https://image.tmdb.org/t/p/original${poster_path}`}
+            alt='Card cap'
+          />
+        </Link>
+
+        <div className='card-body'>
           <h5 className='card-title'>{this.props.item.title}</h5>
           <p className='card-text'>{this.props.item.overview}</p>
           <p className='card-text'>
@@ -77,10 +80,6 @@ class MovieCard extends Component {
             onClick={() => this.onSeenMovie(this.props.item)}
           >
             Watched it
-          </button>
-
-          <button className='btn btn-danger btn-sm btn-block'>
-            <Link to={`/movies/${id}`}>View More</Link>
           </button>
         </div>
         <div />

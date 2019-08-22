@@ -3,7 +3,7 @@ import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
 
 const Header = ({ currentUser }) => (
-  <nav className='navbar navbar-expand-lg navbar-dark'>
+  <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
     <a className='navbar-brand' href='/homepage'>
       MovieWiki
     </a>
