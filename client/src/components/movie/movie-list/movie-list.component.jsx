@@ -3,7 +3,7 @@ import ComponentSearch from './../../common/component-search/component-search.co
 import MovieCard from './../movie-card/movie-card.component';
 
 const MovieDb = require('moviedb-promise');
-const moviedb = new MovieDb('process.env.REACT_APP_MOVIE_DB_API_KEY');
+const moviedb = new MovieDb('f7b5dc7f802e943f335a3f26722ddfc4');
 
 class MovieList extends Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 const MovieDb = require('moviedb-promise');
 
-const moviedb = new MovieDb('process.env.REACT_APP_MOVIE_DB_API_KEY');
+const moviedb = new MovieDb('f7b5dc7f802e943f335a3f26722ddfc4');
 
 class MovieDetail extends Component {
   constructor(props) {

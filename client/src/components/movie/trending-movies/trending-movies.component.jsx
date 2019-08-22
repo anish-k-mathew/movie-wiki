@@ -26,7 +26,7 @@ class TrendingMovieList extends Component {
     return (
       <div className='card-deck'>
         {this.state.results.map(item => (
-          <div className='card'>
+          <div className='card' key={item.id}>
             <Link to={`/movies/${item.id}`}>
               <img
                 className='card-img-top'
