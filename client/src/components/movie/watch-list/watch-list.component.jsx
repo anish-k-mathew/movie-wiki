@@ -11,15 +11,17 @@ class Watchlist extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.currentUser !== prevProps.currentUser) {
-      fetch(`api/list/${this.props.currentUser.email}`)
-        .then(res => res.json())
-        .then(result => {
-          this.setState({
-            isLoaded: true,
-            watchlist: result
+    if (this.props.currentUser) {
+      if (this.props.currentUser !== prevProps.currentUser) {
+        fetch(`api/list/${this.props.currentUser.email}`)
+          .then(res => res.json())
+          .then(result => {
+            this.setState({
+              isLoaded: true,
+              watchlist: result
+            });
           });
-        });
+      }
     }
   }
 
@@ -29,9 +31,9 @@ class Watchlist extends Component {
     });
   };
   render() {
-    const { watchlist, isLoaded } = this.state;
-    if (!isLoaded) {
-      return <div>Loading ... </div>;
+    const { watchlist } = this.state;
+    if (this.props.currentUser === null) {
+      return <div>Please sign in... </div>;
     } else {
       return (
         <div className='card-deck'>
@@ -43,9 +45,9 @@ class Watchlist extends Component {
                   <p className='card-text'>{item.description}</p>
                   <button
                     className='btn btn-light'
-                    onClick={() => this.onRemoveFromHistory(item.id)}
+                    onClick={() => this.onRemoveFromList(item.id)}
                   >
-                    Remove from watch history
+                    Remove from watch list
                   </button>
                 </div>
               ))}

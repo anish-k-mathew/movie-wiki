@@ -11,15 +11,17 @@ class WatchHistory extends Component {
     };
   }
   componentDidUpdate(prevProps) {
-    if (this.props.currentUser !== prevProps.currentUser) {
-      fetch(`api/history/${this.props.currentUser.email}`)
-        .then(res => res.json())
-        .then(result => {
-          this.setState({
-            isLoaded: true,
-            watchhistory: result
+    if (this.props.currentUser) {
+      if (this.props.currentUser !== prevProps.currentUser) {
+        fetch(`api/history/${this.props.currentUser.email}`)
+          .then(res => res.json())
+          .then(result => {
+            this.setState({
+              isLoaded: true,
+              watchhistory: result
+            });
           });
-        });
+      }
     }
   }
 
@@ -30,9 +32,9 @@ class WatchHistory extends Component {
   };
 
   render() {
-    const { watchhistory, isLoaded } = this.state;
-    if (!isLoaded) {
-      return <div>Loading ... </div>;
+    const { watchhistory } = this.state;
+    if (this.props.currentUser === null) {
+      return <div>Please sign in... </div>;
     } else {
       return (
         <div className='card-deck'>

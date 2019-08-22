@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 const Header = ({ currentUser }) => (
   <nav className='navbar navbar-expand-lg navbar-dark'>
-    <i class='fas fa-video' />{' '}
     <a className='navbar-brand' href='/homepage'>
       MovieWiki
     </a>

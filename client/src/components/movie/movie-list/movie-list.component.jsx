@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import ComponentSearch from "./../../common/component-search/component-search.component";
-import MovieCard from "./../movie-card/movie-card.component";
-const MovieDb = require("moviedb-promise");
-const moviedb = new MovieDb("f7b5dc7f802e943f335a3f26722ddfc4");
+import React, { Component } from 'react';
+import ComponentSearch from './../../common/component-search/component-search.component';
+import MovieCard from './../movie-card/movie-card.component';
+const MovieDb = require('moviedb-promise');
+const moviedb = new MovieDb(process.env.REACT_APP_MOVIE_DB_API);
 
 class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       result: [],
-      searchTerm: ""
+      searchTerm: ''
     };
     this.setSearchMovies = this.setSearchMovies.bind(this);
     this.searchMovies = this.searchMovies.bind(this);
@@ -53,9 +53,9 @@ class MovieList extends Component {
           value={searchTerm}
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
-          placeholder="Search Movies by Movie Name"
+          placeholder='Search Movies by Movie Name'
         />
-        <div className="card-deck">
+        <div className='card-deck'>
           {result &&
             result.map(item => <MovieCard key={item.id} item={item} />)}
         </div>

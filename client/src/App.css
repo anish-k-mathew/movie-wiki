@@ -4,7 +4,7 @@
 
 body {
   /* Location of the image */
-  background-image: url('./assets//bg3.jpg');
+  background-image: url('./assets/bg3.jpg');
   /* Background image is centered vertically and horizontally at all times */
   background-position: center center;
 
