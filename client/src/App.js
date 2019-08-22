@@ -43,7 +43,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='container-fluid'>
+      <React.Fragment>
         <Header />
         <Switch>
           <Route path='/homepage' component={HomePage} />
@@ -67,7 +67,7 @@ class App extends React.Component {
             }
           />
         </Switch>
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './movie-detail.styles.scss';
 const MovieDb = require('moviedb-promise');
 
 const moviedb = new MovieDb('f7b5dc7f802e943f335a3f26722ddfc4');
@@ -53,49 +54,45 @@ class MovieDetail extends Component {
   };
   render() {
     const { movieDetail } = this.state;
+    const imageUrl = `https://image.tmdb.org/t/p/original${
+      movieDetail.backdrop_path
+    }`;
 
+    console.log(imageUrl);
     return (
-      <React.Fragment>
-        <div className='card'>
-          <img
-            className='card-img-top'
-            src={`https://image.tmdb.org/t/p/original${
-              movieDetail.backdrop_path
-            }`}
-            alt='Card cap'
-          />
+      <div className='movie-detail'>
+        <div
+          className='background-img'
+          style={{
+            backgroundImage: `url(${imageUrl})`
+          }}
+        >
+          <div className='card-body'>
+            <h5 className='title'>{movieDetail.title}</h5>
+            <p className='subtitle'>{movieDetail.tagline}</p>
+            <p className='subtitle'>Overview: {movieDetail.overview}</p>
+            <p className='subtitle'>Release Date: {movieDetail.release_date}</p>
+            <p className='subtitle'>Budget: ${movieDetail.budget}</p>
+            <p className='subtitle'>Revenue: ${movieDetail.revenue}</p>
+            <p className='subtitle'>Released on {movieDetail.release_date}</p>
+            <p className='subtitle'>Runtime: {movieDetail.runtime} minutes</p>
 
-          <h5 className='card-title'>{movieDetail.title}</h5>
-          <p className='card-text'>{movieDetail.tagline}</p>
-          <p className='card-text'>Overview: {movieDetail.overview}</p>
-          <p className='card-text'>Release Date: {movieDetail.release_date}</p>
-          <p className='card-text'>Budget: ${movieDetail.budget}</p>
-          <p className='card-text'>Revenue: ${movieDetail.revenue}</p>
-          <p className='card-text'>Released on {movieDetail.release_date}</p>
-          <p>Runtime: {movieDetail.runtime} minutes</p>
-          <img
-            className='card-img-bottom'
-            src={`https://image.tmdb.org/t/p/original${
-              movieDetail.poster_path
-            }`}
-            alt='Card cap'
-          />
+            <button
+              className='btn btn-light btn-sm'
+              onClick={() => this.onAddToList(this.state.movieDetail)}
+            >
+              Add to Watchlist
+            </button>
+
+            <button
+              className='btn btn-danger btn-sm'
+              onClick={() => this.onSeenMovie(this.state.movieDetail)}
+            >
+              Watched it
+            </button>
+          </div>
         </div>
-
-        <button
-          className='btn btn-light btn-sm btn-block'
-          onClick={() => this.onAddToList(this.state.movieDetail)}
-        >
-          Add to Watchlist
-        </button>
-
-        <button
-          className='btn btn-danger btn-sm btn-block'
-          onClick={() => this.onSeenMovie(this.state.movieDetail)}
-        >
-          Watched it
-        </button>
-      </React.Fragment>
+      </div>
     );
   }
 }
