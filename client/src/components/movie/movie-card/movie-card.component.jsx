@@ -50,11 +50,12 @@ class MovieCard extends Component {
   render() {
     const { id, poster_path } = this.props.item;
     return (
-      <div key={id}>
+      <div className='col-lg-3 p-1' key={id}>
         <Link to={`/movies/${id}`}>
           <img
             src={`https://image.tmdb.org/t/p/original${poster_path}`}
             alt='Card cap'
+            className='img-fluid rounded'
           />
         </Link>
       </div>

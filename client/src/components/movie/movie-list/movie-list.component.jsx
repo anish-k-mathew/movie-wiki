@@ -49,17 +49,14 @@ class MovieList extends Component {
   render() {
     const { searchTerm, result } = this.state;
     return (
-      <div className='movie-list'>
+      <div className='row'>
         <ComponentSearch
           value={searchTerm}
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
           placeholder='Search Movies by Movie Name'
         />
-        <div className='card-deck'>
-          {result &&
-            result.map(item => <MovieCard key={item.id} item={item} />)}
-        </div>
+        {result && result.map(item => <MovieCard key={item.id} item={item} />)}
       </div>
     );
   }
