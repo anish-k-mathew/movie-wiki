@@ -3,7 +3,7 @@ import MovieCard from './../movie-card/movie-card.component';
 
 const MovieDb = require('moviedb-promise');
 
-const moviedb = new MovieDb(process.env.REACT_APP_MOVIE_DB_API);
+const moviedb = new MovieDb('process.env.REACT_APP_MOVIE_DB_API');
 
 class MovieCredit extends Component {
   constructor(props) {
