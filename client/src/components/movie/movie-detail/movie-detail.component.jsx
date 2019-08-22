@@ -61,35 +61,45 @@ class MovieDetail extends Component {
     console.log(imageUrl);
     return (
       <div className='movie-detail'>
-        <div
-          className='background-img'
-          style={{
-            backgroundImage: `url(${imageUrl})`
-          }}
-        >
-          <div className='card-body'>
-            <h5 className='title'>{movieDetail.title}</h5>
-            <p className='subtitle'>{movieDetail.tagline}</p>
-            <p className='subtitle'>Overview: {movieDetail.overview}</p>
-            <p className='subtitle'>Release Date: {movieDetail.release_date}</p>
-            <p className='subtitle'>Budget: ${movieDetail.budget}</p>
-            <p className='subtitle'>Revenue: ${movieDetail.revenue}</p>
-            <p className='subtitle'>Released on {movieDetail.release_date}</p>
-            <p className='subtitle'>Runtime: {movieDetail.runtime} minutes</p>
+        <div className='fullscreen'>
+          <div
+            className='background-img'
+            style={{
+              backgroundImage: `url(${imageUrl})`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              width: '1024px',
 
-            <button
-              className='btn btn-light btn-sm'
-              onClick={() => this.onAddToList(this.state.movieDetail)}
-            >
-              Add to Watchlist
-            </button>
+              height: '100%'
+            }}
+          >
+            <div className='card-body'>
+              <h5 className='title'>{movieDetail.title}</h5>
+              <p className='subtitle'>{movieDetail.tagline}</p>
+              <p className='subtitle'>Overview: {movieDetail.overview}</p>
+              <p className='subtitle'>
+                Release Date: {movieDetail.release_date}
+              </p>
+              <p className='subtitle'>Budget: ${movieDetail.budget}</p>
+              <p className='subtitle'>Revenue: ${movieDetail.revenue}</p>
+              <p className='subtitle'>Released on {movieDetail.release_date}</p>
+              <p className='subtitle'>Runtime: {movieDetail.runtime} minutes</p>
 
-            <button
-              className='btn btn-danger btn-sm'
-              onClick={() => this.onSeenMovie(this.state.movieDetail)}
-            >
-              Watched it
-            </button>
+              <button
+                className='btn btn-light btn-sm'
+                onClick={() => this.onAddToList(this.state.movieDetail)}
+              >
+                Add to Watchlist
+              </button>
+
+              <button
+                className='btn btn-danger btn-sm'
+                onClick={() => this.onSeenMovie(this.state.movieDetail)}
+              >
+                Watched it
+              </button>
+            </div>
           </div>
         </div>
       </div>

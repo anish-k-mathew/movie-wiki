@@ -49,7 +49,7 @@ class MovieList extends Component {
   render() {
     const { searchTerm, result } = this.state;
     return (
-      <React.Fragment>
+      <div className='movie-list'>
         <ComponentSearch
           value={searchTerm}
           onChange={this.onSearchChange}
@@ -60,7 +60,7 @@ class MovieList extends Component {
           {result &&
             result.map(item => <MovieCard key={item.id} item={item} />)}
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

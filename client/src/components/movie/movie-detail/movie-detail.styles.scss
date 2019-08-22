@@ -1,41 +1,11 @@
 .movie-detail {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 100%;
   height: 100%;
-
-  .background-img {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /* Background image is centered vertically and horizontally at all times */
-    background-position: center center;
-  }
-
-  .content {
-    height: 100%;
-    width: 100%;
-    padding: 0 0px;
-    align-items: center;
-    justify-content: center;
-
-    .title {
-      font-weight: bold;
-      margin: 0 6px 0;
-      font-size: 22px;
-      color: white;
-    }
-
-    .subtitle {
-      font-weight: lighter;
-      font-size: 16px;
-      color: white;
-    }
-  }
 }
-
-.background-img {
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  /* Background image is centered vertically and horizontally at all times */
-  background-position: center center;
+body,
+html {
+  height: 100%;
 }

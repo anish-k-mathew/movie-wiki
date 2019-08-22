@@ -58,31 +58,6 @@ class MovieCard extends Component {
             alt='Card cap'
           />
         </Link>
-
-        <div className='card-body'>
-          <h5 className='card-title'>{this.props.item.title}</h5>
-          <p className='card-text'>{this.props.item.overview}</p>
-          <p className='card-text'>
-            <small className='text-muted'>
-              Released on {this.props.item.release_date}
-            </small>
-          </p>
-
-          <button
-            className='btn btn-light btn-sm btn-block'
-            onClick={() => this.onAddToList(this.props.item)}
-          >
-            Add to Watchlist
-          </button>
-
-          <button
-            className='btn btn-danger btn-sm btn-block'
-            onClick={() => this.onSeenMovie(this.props.item)}
-          >
-            Watched it
-          </button>
-        </div>
-        <div />
       </div>
     );
   }
