@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './movie-detail.styles.scss';
+import NumberFormat from 'react-number-format';
+
 const MovieDb = require('moviedb-promise');
 
 const moviedb = new MovieDb('f7b5dc7f802e943f335a3f26722ddfc4');
@@ -10,8 +12,7 @@ class MovieDetail extends Component {
     super(props);
     this.state = {
       movieDetail: '',
-      movieId: props.match.params.movieId,
-      reviews: ''
+      movieId: props.match.params.movieId
     };
     this.getMovieDetail = this.getMovieDetail.bind(this);
   }
@@ -20,10 +21,6 @@ class MovieDetail extends Component {
     const response = await moviedb.movieInfo({ id: movieId });
     this.setState({ movieDetail: response });
     console.log(response);
-
-    const reviewResponse = await moviedb.movieReviews({ id: movieId });
-    this.setState({ reviews: reviewResponse });
-    console.log(reviewResponse);
   };
   componentDidMount() {
     const { movieId } = this.state;
@@ -66,14 +63,27 @@ class MovieDetail extends Component {
     console.log(imageUrl);
     return (
       <div className='card bg-dark text-white'>
-        <img class='card-img' src={imageUrl} alt='Card mod' />
-        <div class='card-img-overlay col-3'>
+        <img className='card-img' src={imageUrl} alt='Card mod' />
+        <div className='card-img-overlay col-3'>
           <p className='h3'>{movieDetail.title}</p>
           <p className='h6'>{movieDetail.tagline}</p>
           <p className='h6'>Overview: {movieDetail.overview}</p>
           <p className='h6'>Release Date: {movieDetail.release_date}</p>
-          <p className='h6'>Budget: ${movieDetail.budget}</p>
-          <p className='h6'>Revenue: ${movieDetail.revenue}</p>
+
+          <NumberFormat
+            value={movieDetail.budget}
+            displayType={'text'}
+            thousandSeparator={true}
+            prefix={'Budget $'}
+          />
+          <br />
+          <NumberFormat
+            value={movieDetail.revenue}
+            displayType={'text'}
+            thousandSeparator={true}
+            prefix={'Revenue $'}
+          />
+
           <p className='h6'>Released on {movieDetail.release_date}</p>
           <p className='h6'>Runtime: {movieDetail.runtime} minutes</p>
           <button

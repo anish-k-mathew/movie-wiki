@@ -15,8 +15,6 @@ class TrendingMovieList extends Component {
     fetch(this.trendingMovieURL)
       .then(res => res.json())
       .then(result => {
-        console.log(result.results);
-
         this.setState({ results: result.results });
       });
   }
