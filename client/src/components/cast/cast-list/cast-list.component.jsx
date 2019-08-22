@@ -1,17 +1,16 @@
-import React, { Component } from "react";
-import ComponentSearch from "./../../common/component-search/component-search.component"
-import CastCard from "./../cast-card/cast-card.component";
+import React, { Component } from 'react';
+import ComponentSearch from './../../common/component-search/component-search.component';
+import CastCard from './../cast-card/cast-card.component';
 
-const MovieDb = require("moviedb-promise");
-const moviedb = new MovieDb("f7b5dc7f802e943f335a3f26722ddfc4");
-
+const MovieDb = require('moviedb-promise');
+const moviedb = new MovieDb(process.env.REACT_APP_MOVIE_DB_API_KEY);
 
 class CastList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       result: [],
-      searchTerm: ""
+      searchTerm: ''
     };
     this.setSearchCast = this.setSearchCast.bind(this);
     this.searchCast = this.searchCast.bind(this);
@@ -45,7 +44,8 @@ class CastList extends Component {
   onHandleClick(event) {
     this.setState({ searchTerm: event.target.value });
     this.searchCast(event.target.value);
-  }ar
+  }
+  ar;
 
   render() {
     const { searchTerm, result } = this.state;
@@ -55,11 +55,12 @@ class CastList extends Component {
           value={searchTerm}
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
-          placeholder="Search Movies by Cast"
+          placeholder='Search Movies by Cast'
         />
         <div>
           <div>
-            {result && result.map(item => <CastCard key={item.id} item={item} />)}
+            {result &&
+              result.map(item => <CastCard key={item.id} item={item} />)}
           </div>
         </div>
       </React.Fragment>
