@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 const MovieDb = require('moviedb-promise');
 
-const moviedb = new MovieDb('f7b5dc7f802e943f335a3f26722ddfc4');
+const moviedb = new MovieDb(process.env.REACT_APP_MOVIE_DB_API);
 
 class MovieDetail extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class MovieDetail extends Component {
     this.getMovieDetail(movieId);
   }
   onSeenMovie = movieDetail => {
-    fetch('/movie', {
+    fetch('/api/movie', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -39,7 +39,7 @@ class MovieDetail extends Component {
   };
 
   onAddToList = movieDetail => {
-    fetch('/watch', {
+    fetch('/api/watch', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -103,5 +103,8 @@ class MovieDetail extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
 
-export default MovieDetail;
+export default connect(mapStateToProps)(MovieDetail);

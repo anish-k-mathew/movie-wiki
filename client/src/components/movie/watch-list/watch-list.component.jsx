@@ -41,8 +41,7 @@ class Watchlist extends Component {
             {watchlist &&
               watchlist.map(item => (
                 <div className='card-body' key={item.id}>
-                  <h5 className='card-title'>{item.title}</h5>
-                  <p className='card-text'>{item.description}</p>
+                  <p className='card-title'>{item.title}</p>
                   <button
                     className='btn btn-light'
                     onClick={() => this.onRemoveFromList(item.id)}
