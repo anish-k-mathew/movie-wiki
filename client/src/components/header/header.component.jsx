@@ -21,6 +21,11 @@ const Header = ({ currentUser }) => (
     <div className='collapse navbar-collapse' id='navbarNav'>
       <ul className='navbar-nav'>
         <li className='nav-item'>
+          <a className='nav-link' href='/homepage'>
+            In Theaters
+          </a>
+        </li>
+        <li className='nav-item'>
           <a className='nav-link' href='/movies'>
             Movie Search
           </a>

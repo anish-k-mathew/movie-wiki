@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import MovieCard from "./../movie-card/movie-card.component";
+import React, { Component } from 'react';
+import MovieCard from './../movie-card/movie-card.component';
 
-const MovieDb = require("moviedb-promise");
+const MovieDb = require('moviedb-promise');
 
-const moviedb = new MovieDb("f7b5dc7f802e943f335a3f26722ddfc4");
+const moviedb = new MovieDb(process.env.REACT_APP_MOVIE_DB_API);
 
 class MovieCredit extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class MovieCredit extends Component {
     return (
       <React.Fragment>
         <div>
-          <div className="card-deck">
+          <div className='card-deck'>
             {cast && cast.map(item => <MovieCard key={item.id} item={item} />)}
           </div>
         </div>

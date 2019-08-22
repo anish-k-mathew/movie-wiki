@@ -1,12 +1,10 @@
 import React from 'react';
+import TrendingMovieList from './../../components/movie/trending-movies/trending-movies.component';
 import './homepage.styles.scss';
 
 const HomePage = () => (
-  <div className='text-center'>
-    <p className='text-light homepage-subheader'>
-      A place where you can search for any movie ever produced and build your
-      watchlist, provide ratings & reviews, suggest movies to friends, etc.
-    </p>
+  <div>
+    <TrendingMovieList />
   </div>
 );
 
