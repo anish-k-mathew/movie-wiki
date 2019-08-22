@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ComponentSearch from './../../common/component-search/component-search.component';
 import MovieCard from './../movie-card/movie-card.component';
+
 const MovieDb = require('moviedb-promise');
-const moviedb = new MovieDb(process.env.REACT_APP_MOVIE_DB_API_KEY);
+const moviedb = new MovieDb('process.env.REACT_APP_MOVIE_DB_API_KEY');
 
 class MovieList extends Component {
   constructor(props) {
