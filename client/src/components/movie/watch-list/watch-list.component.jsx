@@ -37,10 +37,10 @@ class Watchlist extends Component {
     } else {
       return (
         <div className='card-deck'>
-          <div className='card'>
-            {watchlist &&
-              watchlist.map(item => (
-                <div className='card-body' key={item.id}>
+          {watchlist &&
+            watchlist.map(item => (
+              <div className='card' key={item.id}>
+                <div className='card-body'>
                   <p className='card-title'>{item.title}</p>
                   <button
                     className='btn btn-light'
@@ -49,8 +49,8 @@ class Watchlist extends Component {
                     Remove from watch list
                   </button>
                 </div>
-              ))}
-          </div>
+              </div>
+            ))}
         </div>
       );
     }

@@ -38,10 +38,10 @@ class WatchHistory extends Component {
     } else {
       return (
         <div className='card-deck'>
-          <div className='card'>
-            {watchhistory &&
-              watchhistory.map(item => (
-                <div className='card-body' key={item.id}>
+          {watchhistory &&
+            watchhistory.map(item => (
+              <div className='card' key={item.id}>
+                <div className='card-body'>
                   <h5 className='card-title'>{item.title}</h5>
                   <button
                     className='btn btn-light'
@@ -50,8 +50,8 @@ class WatchHistory extends Component {
                     Remove from watch history
                   </button>
                 </div>
-              ))}
-          </div>
+              </div>
+            ))}
         </div>
       );
     }
