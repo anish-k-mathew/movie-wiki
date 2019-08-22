@@ -43,7 +43,7 @@ class WatchHistory extends Component {
               <div className='card' key={item.id}>
                 <h5 className='card-title'>{item.title}</h5>
                 <button
-                  className='btn btn-danger'
+                  className='btn btn-danger btn-sm'
                   onClick={() => this.onRemoveFromHistory(item.id)}
                 >
                   Remove from history
