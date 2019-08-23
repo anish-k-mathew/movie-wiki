@@ -55,7 +55,7 @@ class CastList extends Component {
           value={searchTerm}
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
-          placeholder='Search Movies by Cast'
+          placeholder='Search Movie Casts'
         />
         <div className='row'>
           {result &&

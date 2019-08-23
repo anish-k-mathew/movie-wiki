@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class CastCard extends Component {
   render() {
-    const { id, name, profile_path } = this.props.filteredItem;
+    const { id, profile_path } = this.props.filteredItem;
     return (
       <div className='col p-2 text-warning' key={id}>
         <Link to={`persons/${id}`}>
