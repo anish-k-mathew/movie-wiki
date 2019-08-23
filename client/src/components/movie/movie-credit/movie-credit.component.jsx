@@ -9,38 +9,39 @@ class MovieCredit extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cast: [],
-      searchTerm: props.match.params.personId
+      movieCredits: [],
+      personId: this.props.personId
     };
     this.setSearchMovies = this.setSearchMovies.bind(this);
     this.searchMovies = this.searchMovies.bind(this);
   }
 
-  setSearchMovies(cast) {
-    this.setState({ cast: cast });
-    if (cast === null) {
-      this.setState({ cast: null });
+  setSearchMovies(movieCredits) {
+    this.setState({ movieCredits: movieCredits });
+    if (movieCredits === null) {
+      this.setState({ movieCredits: null });
     }
   }
 
-  searchMovies = async searchTerm => {
-    const response = await moviedb.personMovieCredits({ id: searchTerm });
+  searchMovies = async personId => {
+    const response = await moviedb.personMovieCredits({ id: personId });
 
-    this.setState({ cast: response.cast });
+    this.setState({ movieCredits: response.cast });
     console.log(response.cast);
   };
   componentDidMount() {
-    const { searchTerm } = this.state;
-    this.setState({ searchTerm });
-    this.searchMovies(searchTerm);
+    const { personId } = this.state;
+    this.setState({ personId });
+    this.searchMovies(personId);
   }
 
   render() {
-    const { cast } = this.state;
+    const { movieCredits } = this.state;
 
     return (
       <div className='row m-5'>
-        {cast && cast.map(item => <MovieCard key={item.id} item={item} />)}
+        {movieCredits &&
+          movieCredits.map(item => <MovieCard key={item.id} item={item} />)}
       </div>
     );
   }

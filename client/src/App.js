@@ -10,7 +10,7 @@ import WatchHistory from './components/movie/watch-history/watch-history.compone
 import CastList from './components/cast/cast-list/cast-list.component.jsx';
 
 import Header from './components/header/header.component';
-import MovieCredit from './components/movie/movie-credit/movie-credit.component.jsx';
+import PersonDetail from './components/person/person-detail/person-detail.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
@@ -54,7 +54,7 @@ class App extends React.Component {
           <Route exact path='/watch' component={Watchlist} />
           <Route exact path='/watchhistory' component={WatchHistory} />
           <Route exact path='/cast' component={CastList} />
-          <Route exact path='/persons/:personId' component={MovieCredit} />
+          <Route exact path='/persons/:personId' component={PersonDetail} />
           <Route
             exact
             path='/signin'

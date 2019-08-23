@@ -55,13 +55,10 @@ class MovieDetail extends Component {
   };
   render() {
     const { movieDetail } = this.state;
-    console.log(movieDetail);
     let imageUrl = `https://image.tmdb.org/t/p/original${
       movieDetail.backdrop_path
     }`;
 
-    console.log('backdrop is sssss');
-    console.log(movieDetail.backdrop_path);
     if (!movieDetail.backdrop_path) {
       imageUrl = `https://image.tmdb.org/t/p/original${
         movieDetail.poster_path
