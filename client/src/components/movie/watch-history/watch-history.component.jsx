@@ -37,11 +37,11 @@ class WatchHistory extends Component {
       return <div>Please sign in... </div>;
     } else {
       return (
-        <div className='card-deck'>
+        <div className='row'>
           {watchhistory &&
             watchhistory.map(item => (
-              <div className='card' key={item.id}>
-                <h5 className='card-title'>{item.title}</h5>
+              <div className='col-lg-2 p-1 text-light' key={item.id}>
+                <h5>{item.title}</h5>
                 <button
                   className='btn btn-danger btn-sm'
                   onClick={() => this.onRemoveFromHistory(item.id)}

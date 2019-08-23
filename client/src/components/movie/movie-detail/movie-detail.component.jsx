@@ -71,28 +71,35 @@ class MovieDetail extends Component {
         }}
       >
         <img className='card-img' src={imageUrl} alt='Card mod' />
-        <div className='card-img-overlay col-3'>
-          <p className='h3 text-warning'>{movieDetail.title}</p>
-          <p className='text-danger'>{movieDetail.tagline}</p>
-          <p className='text-white'>{movieDetail.overview}</p>
-          <p className='text-white'>Release Date: {movieDetail.release_date}</p>
+        <div className='card-img-overlay  col-md-5'>
+          <div class='.d-sm-none .d-md-block  '>
+            <p className='h3 text-warning'>{movieDetail.title}</p>
+            <p className='text-light'>{movieDetail.tagline}</p>
+            <p className='d-none d-lg-block d-print-block'>
+              {movieDetail.overview}
+            </p>
+            <p className='text-white'>
+              Release Date: {movieDetail.release_date}
+            </p>
 
-          <NumberFormat
-            value={movieDetail.budget}
-            displayType={'text'}
-            thousandSeparator={true}
-            prefix={'Budget $'}
-          />
-          <br />
+            <NumberFormat
+              value={movieDetail.budget}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'Budget $'}
+            />
+            <br />
 
-          <NumberFormat
-            value={movieDetail.revenue}
-            displayType={'text'}
-            thousandSeparator={true}
-            prefix={'Revenue $'}
-          />
+            <NumberFormat
+              value={movieDetail.revenue}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'Revenue $'}
+            />
 
-          <p>Runtime: {movieDetail.runtime} minutes</p>
+            <p>Runtime: {movieDetail.runtime} minutes</p>
+          </div>
+
           <button
             className='btn btn-light btn-sm'
             onClick={() => this.onAddToList(this.state.movieDetail)}
