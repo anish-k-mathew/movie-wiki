@@ -3,22 +3,16 @@ import { Link } from 'react-router-dom';
 
 class CastCard extends Component {
   render() {
-    const { id, name, profile_path } = this.props.item;
+    const { id, name, profile_path } = this.props.filteredItem;
     return (
-      <div>
-        <div key={id}>
-          <div className='col-lg-2 p-2 text-warning'>
-            {name}
-
-            <Link to={`persons/${id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/original${profile_path}`}
-                className='img-fluid rounded'
-                alt='Card cap'
-              />
-            </Link>
-          </div>
-        </div>
+      <div className='col p-2 text-warning' key={id}>
+        <Link to={`persons/${id}`}>
+          <img
+            src={`https://image.tmdb.org/t/p/original${profile_path}`}
+            className='img-fluid rounded'
+            alt='Card cap'
+          />
+        </Link>
       </div>
     );
   }

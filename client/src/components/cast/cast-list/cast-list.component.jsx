@@ -57,7 +57,18 @@ class CastList extends Component {
           onSubmit={this.onSearchSubmit}
           placeholder='Search Movies by Cast'
         />
-        {result && result.map(item => <CastCard key={item.id} item={item} />)}
+        <div className='row'>
+          {result &&
+            result
+              .filter(
+                item =>
+                  item.known_for_department === 'Acting' &&
+                  item.profile_path !== null
+              )
+              .map(filteredItem => (
+                <CastCard key={filteredItem.id} filteredItem={filteredItem} />
+              ))}
+        </div>
       </div>
     );
   }

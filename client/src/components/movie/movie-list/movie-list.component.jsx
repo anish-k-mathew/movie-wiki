@@ -56,7 +56,10 @@ class MovieList extends Component {
           onSubmit={this.onSearchSubmit}
           placeholder='Search Movies by Movie Name'
         />
-        {result && result.map(item => <MovieCard key={item.id} item={item} />)}
+        <div className='row'>
+          {result &&
+            result.map(item => <MovieCard key={item.id} item={item} />)}
+        </div>
       </div>
     );
   }

@@ -10,6 +10,11 @@ require('dotenv').config();
 
 const auth = require('./auth');
 
+const items = ['a', 'b', 'c', 'd', 'e', 'f'];
+const valueToRemove = 'c';
+const filteredItems = items.filter(item => item !== valueToRemove);
+console.log(filteredItems);
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
