@@ -14,7 +14,6 @@ class MovieDetail extends Component {
       movieDetail: '',
       movieId: props.match.params.movieId
     };
-    this.getMovieDetail = this.getMovieDetail.bind(this);
   }
 
   getMovieDetail = async movieId => {
@@ -56,12 +55,20 @@ class MovieDetail extends Component {
   };
   render() {
     const { movieDetail } = this.state;
-    const imageUrl = `https://image.tmdb.org/t/p/original${
+    console.log(movieDetail);
+    let imageUrl = `https://image.tmdb.org/t/p/original${
       movieDetail.backdrop_path
     }`;
+
+    console.log('backdrop is sssss');
+    console.log(movieDetail.backdrop_path);
+    if (!movieDetail.backdrop_path) {
+      imageUrl = `https://image.tmdb.org/t/p/original${
+        movieDetail.poster_path
+      }`;
+    }
     let year = '';
     if (movieDetail.release_date) {
-      console.log(movieDetail.release_date);
       year = movieDetail.release_date.substr(0, 4);
     }
 
