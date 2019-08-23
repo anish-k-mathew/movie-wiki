@@ -73,9 +73,9 @@ class MovieDetail extends Component {
         <img className='card-img' src={imageUrl} alt='Card mod' />
         <div className='card-img-overlay col-3'>
           <p className='h3 text-warning'>{movieDetail.title}</p>
-          <p>{movieDetail.tagline}</p>
-          <p>{movieDetail.overview}</p>
-          <p>Release Date: {movieDetail.release_date}</p>
+          <p className='text-danger'>{movieDetail.tagline}</p>
+          <p className='text-white'>{movieDetail.overview}</p>
+          <p className='text-white'>Release Date: {movieDetail.release_date}</p>
 
           <NumberFormat
             value={movieDetail.budget}
