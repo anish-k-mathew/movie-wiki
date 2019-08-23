@@ -1,7 +1,4 @@
-.trending-movies {
-  display: grid;
-
-  grid: auto-flow;
-  grid-auto-rows: auto;
-  grid-gap: 10px;
+.col-lg-2:hover {
+  transform: scale(1.12);
+  transition: transform 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
 }

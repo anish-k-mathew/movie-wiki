@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './trending-movies.styles.scss';
 
 class TrendingMovieList extends Component {
   constructor(props) {
