@@ -50,17 +50,15 @@ class CastList extends Component {
   render() {
     const { searchTerm, result } = this.state;
     return (
-      <React.Fragment>
+      <div className='row'>
         <ComponentSearch
           value={searchTerm}
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
           placeholder='Search Movies by Cast'
         />
-        <div className='card-deck'>
-          {result && result.map(item => <CastCard key={item.id} item={item} />)}
-        </div>
-      </React.Fragment>
+        {result && result.map(item => <CastCard key={item.id} item={item} />)}
+      </div>
     );
   }
 }

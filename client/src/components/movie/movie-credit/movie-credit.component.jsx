@@ -39,13 +39,9 @@ class MovieCredit extends Component {
     const { cast } = this.state;
 
     return (
-      <React.Fragment>
-        <div>
-          <div>
-            {cast && cast.map(item => <MovieCard key={item.id} item={item} />)}
-          </div>
-        </div>
-      </React.Fragment>
+      <div className='row'>
+        {cast && cast.map(item => <MovieCard key={item.id} item={item} />)}
+      </div>
     );
   }
 }

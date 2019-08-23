@@ -7,13 +7,13 @@ class CastCard extends Component {
     return (
       <div>
         <div key={id}>
-          <div className='card-body'>
-            <h3 className='card-title'>{name}</h3>
+          <div className='col-lg-2 p-1 text-light'>
+            {name}
 
             <Link to={`persons/${id}`}>
               <img
-                className='card-img'
                 src={`https://image.tmdb.org/t/p/original${profile_path}`}
+                className='img-fluid rounded'
                 alt='Card cap'
               />
             </Link>
