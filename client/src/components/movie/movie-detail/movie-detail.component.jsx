@@ -64,10 +64,10 @@ class MovieDetail extends Component {
       <div className='card bg-dark text-white'>
         <img className='card-img' src={imageUrl} alt='Card mod' />
         <div className='card-img-overlay col-3'>
-          <p className='h3'>{movieDetail.title}</p>
-          <p className='h6'>{movieDetail.tagline}</p>
-          <p className='h6'>{movieDetail.overview}</p>
-          <p className='h6'>Release Date: {movieDetail.release_date}</p>
+          <p className='h3 text-warning'>{movieDetail.title}</p>
+          <p>{movieDetail.tagline}</p>
+          <p>{movieDetail.overview}</p>
+          <p>Release Date: {movieDetail.release_date}</p>
 
           <NumberFormat
             value={movieDetail.budget}
@@ -83,7 +83,7 @@ class MovieDetail extends Component {
             prefix={'Revenue $'}
           />
 
-          <p className='h6'>Runtime: {movieDetail.runtime} minutes</p>
+          <p>Runtime: {movieDetail.runtime} minutes</p>
           <button
             className='btn btn-light btn-sm'
             onClick={() => this.onAddToList(this.state.movieDetail)}
