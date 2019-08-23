@@ -5,13 +5,7 @@ body {
   padding-left: 0;
   margin-right: auto;
   margin-left: auto;
-  background-image: linear-gradient(
-    -225deg,
-    #0c0a16 0%,
-    #44107a 29%,
-    #ff1361 67%,
-    #fff800 100%
-  );
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
   background-attachment: fixed;
   background-size: cover;
 }

@@ -14,7 +14,7 @@ const ComponentSearch = ({ value, onChange, onSubmit, placeholder }) => (
 
       <button
         type='submit'
-        className='btn btn-dark mb-4 text-center align-content-stretch'
+        className='btn btn-danger mb-5 text-center align-content-stretch'
       >
         Search
       </button>

@@ -22,7 +22,7 @@ const Header = ({ currentUser }) => (
       <ul className='navbar-nav'>
         <li className='nav-item dropdown'>
           <a
-            className='nav-link navbar-dark dropdown-toggle'
+            className='nav-link text-white dropdown-toggle'
             href='/homepage'
             id='navbarDropdown'
             role='button'
