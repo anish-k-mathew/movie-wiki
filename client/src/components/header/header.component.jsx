@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const Header = ({ currentUser }) => (
   <nav className='navbar navbar-expand-lg navbar-dark'>
-    <a className='navbar-brand' href='/homepage'>
+    <a className='navbar-brand text-danger ' href='/homepage'>
       MovieWiki
     </a>
     <button
