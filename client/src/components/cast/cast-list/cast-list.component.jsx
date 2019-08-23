@@ -50,7 +50,7 @@ class CastList extends Component {
   render() {
     const { searchTerm, result } = this.state;
     return (
-      <div className='row'>
+      <div className='row m-4'>
         <ComponentSearch
           value={searchTerm}
           onChange={this.onSearchChange}

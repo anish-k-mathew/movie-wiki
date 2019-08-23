@@ -7,7 +7,7 @@ class CastCard extends Component {
     return (
       <div>
         <div key={id}>
-          <div className='col-lg-2 p-1 text-light'>
+          <div className='col-lg-2 p-2 text-warning'>
             {name}
 
             <Link to={`persons/${id}`}>

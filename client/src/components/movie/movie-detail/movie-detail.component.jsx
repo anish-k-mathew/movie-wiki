@@ -76,6 +76,7 @@ class MovieDetail extends Component {
             prefix={'Budget $'}
           />
           <br />
+
           <NumberFormat
             value={movieDetail.revenue}
             displayType={'text'}
