@@ -66,7 +66,7 @@ class MovieDetail extends Component {
         <div className='card-img-overlay col-3'>
           <p className='h3'>{movieDetail.title}</p>
           <p className='h6'>{movieDetail.tagline}</p>
-          <p className='h6'>Overview: {movieDetail.overview}</p>
+          <p className='h6'>{movieDetail.overview}</p>
           <p className='h6'>Release Date: {movieDetail.release_date}</p>
 
           <NumberFormat
@@ -83,7 +83,6 @@ class MovieDetail extends Component {
             prefix={'Revenue $'}
           />
 
-          <p className='h6'>Released on {movieDetail.release_date}</p>
           <p className='h6'>Runtime: {movieDetail.runtime} minutes</p>
           <button
             className='btn btn-light btn-sm'
