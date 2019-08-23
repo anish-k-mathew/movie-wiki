@@ -61,7 +61,15 @@ class MovieDetail extends Component {
     }`;
 
     return (
-      <div className='card bg-dark text-white'>
+      <div
+        className='card bg-dark text-white'
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <img className='card-img' src={imageUrl} alt='Card mod' />
         <div className='card-img-overlay col-3'>
           <p className='h3 text-warning'>{movieDetail.title}</p>

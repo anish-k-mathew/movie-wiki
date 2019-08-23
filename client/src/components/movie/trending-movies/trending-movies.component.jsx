@@ -20,7 +20,7 @@ class TrendingMovieList extends Component {
   }
   render() {
     return (
-      <div className='row m-4'>
+      <div className='row m-5'>
         {this.state.results.map(item => (
           <div className='col-lg-2 p-3' key={item.id}>
             <Link to={`/movies/${item.id}`}>

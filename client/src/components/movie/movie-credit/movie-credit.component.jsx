@@ -39,7 +39,7 @@ class MovieCredit extends Component {
     const { cast } = this.state;
 
     return (
-      <div className='row'>
+      <div className='row m-5'>
         {cast && cast.map(item => <MovieCard key={item.id} item={item} />)}
       </div>
     );
