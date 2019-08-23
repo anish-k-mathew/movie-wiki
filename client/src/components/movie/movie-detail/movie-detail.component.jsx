@@ -60,7 +60,6 @@ class MovieDetail extends Component {
       movieDetail.backdrop_path
     }`;
 
-    console.log(imageUrl);
     return (
       <div className='card bg-dark text-white'>
         <img className='card-img' src={imageUrl} alt='Card mod' />

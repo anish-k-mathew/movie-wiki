@@ -36,10 +36,10 @@ class Watchlist extends Component {
       return <div>Please sign in... </div>;
     } else {
       return (
-        <div>
+        <div className='row'>
           {watchlist &&
             watchlist.map(item => (
-              <div key={item.id}>
+              <div className='col-lg-2 p-1 text-light' key={item.id}>
                 <p>{item.title}</p>
                 <button
                   className='btn btn-danger btn-sm'
