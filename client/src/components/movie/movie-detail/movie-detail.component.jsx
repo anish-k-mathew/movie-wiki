@@ -77,7 +77,7 @@ class MovieDetail extends Component {
         <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
         <div className='card-img-overlay  col-md-5'>
           <div className='card-sd .d-sm-none .d-md-block'>
-            <p className='h3 text-warning'>
+            <p className='h4 text-warning'>
               {movieDetail.title} - {year}
             </p>
             <p>{movieDetail.tagline}</p>
