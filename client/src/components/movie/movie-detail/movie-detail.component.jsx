@@ -66,20 +66,18 @@ class MovieDetail extends Component {
     }
 
     return (
-      <div className='card bg-dark text-white'>
+      <div className='card bg-dark'>
         <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
         <div className='card-img-overlay  col-md-5'>
-          <div className='card-sd .d-sm-none .d-md-block  '>
+          <div className='card-sd .d-sm-none .d-md-block'>
             <p className='h3 text-warning'>
               {movieDetail.title} - {year}
             </p>
-            <p className='text-light'>{movieDetail.tagline}</p>
+            <p>{movieDetail.tagline}</p>
             <p className='d-none d-lg-block d-print-block'>
               {movieDetail.overview}
             </p>
-            <p className='text-white'>
-              Release Date: {movieDetail.release_date}
-            </p>
+            <p>Release Date: {movieDetail.release_date}</p>
 
             <NumberFormat
               value={movieDetail.budget}
