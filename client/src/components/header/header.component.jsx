@@ -21,31 +21,31 @@ const Header = ({ currentUser }) => (
     <div className='collapse navbar-collapse' id='navbarNav'>
       <ul className='navbar-nav'>
         <li className='nav-item'>
-          <a className='nav-link' href='/homepage'>
+          <a className='nav-link text-white' href='/homepage'>
             In Theaters
           </a>
         </li>
         <li className='nav-item'>
-          <a className='nav-link' href='/movies'>
+          <a className='nav-link text-white' href='/movies'>
             Movie Search
           </a>
         </li>
         <li className='nav-item'>
-          <a className='nav-link' href='/cast'>
+          <a className='nav-link text-white' href='/cast'>
             Cast Search
           </a>
         </li>
 
         {currentUser ? (
           <li className='nav-item'>
-            <a className='nav-link' href='/watch'>
+            <a className='nav-link text-white' href='/watch'>
               Watch List
             </a>
           </li>
         ) : null}
         {currentUser ? (
           <li className='nav-item'>
-            <a className='nav-link' href='/watchhistory'>
+            <a className='nav-link text-white' href='/watchhistory'>
               Watch History
             </a>
           </li>
@@ -53,12 +53,12 @@ const Header = ({ currentUser }) => (
 
         {currentUser ? (
           <li className='nav-item'>
-            <div className='nav-link' onClick={() => auth.signOut()}>
+            <div className='nav-link text-white' onClick={() => auth.signOut()}>
               Sign Out
             </div>
           </li>
         ) : (
-          <a className='nav-link' href='/signin'>
+          <a className='nav-link text-white' href='/signin'>
             Sign in
           </a>
         )}
