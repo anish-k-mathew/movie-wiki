@@ -46,11 +46,11 @@ class App extends React.Component {
       <div className='container-fluid'>
         <Header />
         <Switch>
-          <Route path='/homepage' component={HomePage} />
+          <Route exact path='/homepage' component={HomePage} />
           <Route exact path='/' component={HomePage} />
           <Route exact path='/movies' component={MovieList} />
           <Route exact path='/movies/:movieId' component={MovieDetail} />
-
+          <Route exact path='/homepage/:language' component={HomePage} />
           <Route exact path='/watch' component={Watchlist} />
           <Route exact path='/watchhistory' component={WatchHistory} />
           <Route exact path='/cast' component={CastList} />

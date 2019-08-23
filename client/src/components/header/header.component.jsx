@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const Header = ({ currentUser }) => (
   <nav className='navbar navbar-expand-lg navbar-dark'>
-    <a className='navbar-brand text-danger ' href='/homepage'>
+    <a className='navbar-brand text-danger ' href='/homepage/en'>
       MovieWiki
     </a>
     <button
@@ -20,11 +20,31 @@ const Header = ({ currentUser }) => (
     </button>
     <div className='collapse navbar-collapse' id='navbarNav'>
       <ul className='navbar-nav'>
-        <li className='nav-item'>
-          <a className='nav-link text-white' href='/homepage'>
-            In Theaters
+        <li className='nav-item dropdown'>
+          <a
+            className='nav-link navbar-dark dropdown-toggle'
+            href='/homepage'
+            id='navbarDropdown'
+            role='button'
+            data-toggle='dropdown'
+            aria-haspopup='true'
+            aria-expanded='false'
+          >
+            Popular Movies
           </a>
+          <div className='dropdown-menu' aria-labelledby='navbarDropdown'>
+            <a className='dropdown-item' href='/homepage/en'>
+              Hollywood
+            </a>
+            <a className='dropdown-item' href='/homepage/hi'>
+              Bollywood
+            </a>
+            <a className='dropdown-item' href='/homepage/ml'>
+              Mollywood
+            </a>
+          </div>
         </li>
+
         <li className='nav-item'>
           <a className='nav-link text-white' href='/movies'>
             Movie Search

@@ -6,8 +6,8 @@ class WatchItem extends Component {
     return (
       <div>
         <div key={id}>
-          <div className='card-body'>
-            <h3 className='card-text'>{name}</h3>
+          <div>
+            <h3>{name}</h3>
             <img
               className='card-img'
               src={`https://image.tmdb.org/t/p/original${profile_path}`}

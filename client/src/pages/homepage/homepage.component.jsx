@@ -4,7 +4,7 @@ import './homepage.styles.scss';
 
 const HomePage = () => (
   <div>
-    <TrendingMovieList />
+    <TrendingMovieList defaultLang={'en'} />
   </div>
 );
 
