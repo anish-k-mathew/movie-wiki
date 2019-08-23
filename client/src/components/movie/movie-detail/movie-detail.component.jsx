@@ -59,21 +59,20 @@ class MovieDetail extends Component {
     const imageUrl = `https://image.tmdb.org/t/p/original${
       movieDetail.backdrop_path
     }`;
+    let year = '';
+    if (movieDetail.release_date) {
+      console.log(movieDetail.release_date);
+      year = movieDetail.release_date.substr(0, 4);
+    }
 
     return (
-      <div
-        className='card bg-dark text-white'
-        style={{
-          backgroundImage: `url(${imageUrl})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <img className='card-img' src={imageUrl} alt='Card mod' />
+      <div className='card bg-dark text-white'>
+        <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
         <div className='card-img-overlay  col-md-5'>
-          <div class='.d-sm-none .d-md-block  '>
-            <p className='h3 text-warning'>{movieDetail.title}</p>
+          <div className='card-sd .d-sm-none .d-md-block  '>
+            <p className='h3 text-warning'>
+              {movieDetail.title} - {year}
+            </p>
             <p className='text-light'>{movieDetail.tagline}</p>
             <p className='d-none d-lg-block d-print-block'>
               {movieDetail.overview}
@@ -86,7 +85,7 @@ class MovieDetail extends Component {
               value={movieDetail.budget}
               displayType={'text'}
               thousandSeparator={true}
-              prefix={'Budget $'}
+              prefix={'Budget: $'}
             />
             <br />
 
@@ -94,9 +93,8 @@ class MovieDetail extends Component {
               value={movieDetail.revenue}
               displayType={'text'}
               thousandSeparator={true}
-              prefix={'Revenue $'}
+              prefix={'Revenue: $'}
             />
-
             <p>Runtime: {movieDetail.runtime} minutes</p>
           </div>
 
