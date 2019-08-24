@@ -40,7 +40,7 @@ class PersonDetail extends Component {
           <img src={imageUrl} alt='Card mod' />
         </div>
         <div className='card-sd .d-sm-none .d-md-block'>
-          <p className='h4 text-warning'>{personDetail.name}</p>
+          <p className='h2 text-warning'>{personDetail.name}</p>
           <p className='d-none d-lg-block d-print-block'>
             {personDetail.birthday}
           </p>
@@ -52,7 +52,7 @@ class PersonDetail extends Component {
           </p>
         </div>
         <div className='movie-credit-section'>
-          <p className='h1 d-none d-lg-block d-print-block text-warning'>
+          <p className='h3 d-none d-lg-block d-print-block text-warning'>
             Movies
           </p>
           <MovieCredit personId={this.state.personId} />
