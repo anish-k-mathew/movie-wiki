@@ -36,7 +36,9 @@ class PersonDetail extends Component {
 
     return (
       <div className='person-detail'>
-        <img src={imageUrl} alt='Card mod' />
+        <div className='person-detail-profile-image'>
+          <img src={imageUrl} alt='Card mod' />
+        </div>
         <div className='card-sd .d-sm-none .d-md-block'>
           <p className='h4 text-warning'>{personDetail.name}</p>
           <p className='d-none d-lg-block d-print-block'>

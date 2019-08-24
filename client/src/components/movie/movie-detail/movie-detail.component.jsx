@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './movie-detail.styles.scss';
 import NumberFormat from 'react-number-format';
+import CastSummary from '../../cast/cast-summary/cast-summary.component';
 
 const MovieDb = require('moviedb-promise');
 
@@ -12,7 +13,9 @@ class MovieDetail extends Component {
     super(props);
     this.state = {
       movieDetail: '',
-      movieId: props.match.params.movieId
+      movieId: props.match.params.movieId,
+      movieCast: '',
+      movieCrew: ''
     };
   }
 
@@ -21,10 +24,21 @@ class MovieDetail extends Component {
     this.setState({ movieDetail: response });
     console.log(response);
   };
+
+  getMovieCast = async movieId => {
+    const castResponse = await moviedb.movieCredits({ id: movieId });
+    this.setState({
+      movieCast: castResponse.cast,
+      movieCrew: castResponse.crew
+    });
+    console.log(castResponse);
+  };
+
   componentDidMount() {
     const { movieId } = this.state;
-    this.setState({ movieId });
     this.getMovieDetail(movieId);
+    this.getMovieCast(movieId);
+    console.log(movieId);
   }
   onSeenMovie = movieDetail => {
     fetch('/api/movie', {
@@ -54,7 +68,7 @@ class MovieDetail extends Component {
     });
   };
   render() {
-    const { movieDetail } = this.state;
+    const { movieDetail, movieCast, movieCrew } = this.state;
     let imageUrl = `https://image.tmdb.org/t/p/original${
       movieDetail.backdrop_path
     }`;
@@ -113,6 +127,16 @@ class MovieDetail extends Component {
           >
             Watched it
           </button>
+        </div>
+        <div className='card bg-dark'>
+          <div className='row'>
+            {movieCast &&
+              movieCast.map(item => <CastSummary key={item.id} item={item} />)}
+          </div>
+          <div className='row'>
+            {movieCrew &&
+              movieCrew.map(item => <CastSummary key={item.id} item={item} />)}
+          </div>
         </div>
       </div>
     );

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import HomePage from './pages/homepage/homepage.component';
 import MovieList from './components/movie/movie-list/movie-list.component';
 import MovieDetail from './components/movie/movie-detail/movie-detail.component.jsx';
-
+import About from './pages/about/about.component';
 import Watchlist from './components/movie/watch-list/watch-list.component';
 import WatchHistory from './components/movie/watch-history/watch-history.component';
 import CastList from './components/cast/cast-list/cast-list.component.jsx';
@@ -55,6 +55,8 @@ class App extends React.Component {
           <Route exact path='/watchhistory' component={WatchHistory} />
           <Route exact path='/cast' component={CastList} />
           <Route exact path='/persons/:personId' component={PersonDetail} />
+          <Route exact path='/about' component={About} />
+
           <Route
             exact
             path='/signin'

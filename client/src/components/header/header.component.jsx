@@ -70,7 +70,11 @@ const Header = ({ currentUser }) => (
             </a>
           </li>
         ) : null}
-
+        <li className='nav-item'>
+          <a className='nav-link text-white' href='/about'>
+            About
+          </a>
+        </li>
         {currentUser ? (
           <li className='nav-item'>
             <div className='nav-link text-white' onClick={() => auth.signOut()}>
