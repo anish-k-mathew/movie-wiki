@@ -87,7 +87,7 @@ class MovieDetail extends Component {
       <div className='card bg-dark'>
         <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
         <div className='card-img-overlay  col-md-5'>
-          <div className='card-sd .d-sm-none .d-md-block'>
+          <div className='d-none d-lg-block d-print-block card-sd .d-sm-none .d-md-block'>
             <p className='h4 text-warning'>
               {movieDetail.title} - {year}
             </p>
@@ -112,21 +112,20 @@ class MovieDetail extends Component {
               prefix={'Revenue: $'}
             />
             <p>Runtime: {movieDetail.runtime} minutes</p>
+            <button
+              className='btn btn-light btn-sm'
+              onClick={() => this.onAddToList(this.state.movieDetail)}
+            >
+              Add to Watchlist
+            </button>
+
+            <button
+              className='btn btn-danger btn-sm'
+              onClick={() => this.onSeenMovie(this.state.movieDetail)}
+            >
+              Watched it
+            </button>
           </div>
-
-          <button
-            className='btn btn-light btn-sm'
-            onClick={() => this.onAddToList(this.state.movieDetail)}
-          >
-            Add to Watchlist
-          </button>
-
-          <button
-            className='btn btn-danger btn-sm'
-            onClick={() => this.onSeenMovie(this.state.movieDetail)}
-          >
-            Watched it
-          </button>
         </div>
         <div className='card bg-dark'>
           <div className='row'>
