@@ -84,7 +84,7 @@ class MovieDetail extends Component {
     }
 
     return (
-      <React.Fragment>
+      <div className='container'>
         <div className='card bg-dark'>
           <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
           <div className='card-img-overlay  col-md-5'>
@@ -148,7 +148,7 @@ class MovieDetail extends Component {
                 ))}
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
