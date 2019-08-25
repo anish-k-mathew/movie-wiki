@@ -10,6 +10,7 @@ import WatchHistory from './components/movie/watch-history/watch-history.compone
 import CastList from './components/cast/cast-list/cast-list.component.jsx';
 import MovieDiscover from './components/movie/movie-discover/movie-discover.component.jsx';
 import Header from './components/header/header.component';
+import Footer from './components/footer/footer.component.jsx';
 import PersonDetail from './components/person/person-detail/person-detail.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';

@@ -45,7 +45,7 @@ class Watchlist extends Component {
                   className='btn btn-danger btn-sm'
                   onClick={() => this.onRemoveFromList(item.id)}
                 >
-                  Remove from watch list
+                  Remove from Watchlist
                 </button>
               </div>
             ))}
