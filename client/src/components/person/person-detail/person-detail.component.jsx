@@ -35,10 +35,11 @@ class PersonDetail extends Component {
     }`;
 
     return (
-      <div className='card bg-dark'>
-        <div className='card-img-top'>
-          <img src={imageUrl} alt='Card mod' />
+      <div className='container'>
+        <div className='col-md-3 justify-center'>
+          <img src={imageUrl} className='img-fluid' alt='Card mod' />
         </div>
+
         <div className='.d-sm-none .d-md-block'>
           <p className='h2 text-warning'>{personDetail.name}</p>
           <p className='d-none d-lg-block d-print-block text-white'>
