@@ -17,8 +17,8 @@ const About = () => (
       <div>Tech Stack</div>
       <ul>
         <li>UI - React.js</li>
-        <li>Backend - Node.js</li>
-        <li>DB - Postgres</li>
+        <li>Backend - Node.js (Express)</li>
+        <li>DB - PostgreSQL</li>
         <li>Authentication - Firebase</li>
         <li>Environment - Heroku</li>
         <li>API Support - TheMovieDB</li>
