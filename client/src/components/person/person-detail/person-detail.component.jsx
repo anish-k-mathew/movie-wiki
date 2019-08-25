@@ -35,20 +35,17 @@ class PersonDetail extends Component {
     }`;
 
     return (
-      <div className='person-detail'>
-        <div className='person-detail-profile-image'>
+      <div className='card bg-dark'>
+        <div className='card-img-top'>
           <img src={imageUrl} alt='Card mod' />
         </div>
-        <div className='card-sd .d-sm-none .d-md-block'>
+        <div className='.d-sm-none .d-md-block'>
           <p className='h2 text-warning'>{personDetail.name}</p>
-          <p className='d-none d-lg-block d-print-block'>
+          <p className='d-none d-lg-block d-print-block text-white'>
             {personDetail.birthday}
           </p>
-          <p className='d-none d-lg-block d-print-block'>
+          <p className='d-none d-lg-block d-print-block text-white'>
             {personDetail.biography}
-          </p>
-          <p className='d-none d-lg-block d-print-block'>
-            {personDetail.birthday}
           </p>
         </div>
         <div className='movie-credit-section'>

@@ -84,60 +84,71 @@ class MovieDetail extends Component {
     }
 
     return (
-      <div className='card bg-dark'>
-        <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
-        <div className='card-img-overlay  col-md-5'>
-          <div className='d-none d-lg-block d-print-block card-sd .d-sm-none .d-md-block'>
-            <p className='h4 text-warning'>
-              {movieDetail.title} - {year}
-            </p>
-            <p>{movieDetail.tagline}</p>
-            <p className='d-none d-lg-block d-print-block'>
-              {movieDetail.overview}
-            </p>
-            <p>Release Date: {movieDetail.release_date}</p>
+      <React.Fragment>
+        <div className='card bg-dark'>
+          <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
+          <div className='card-img-overlay  col-md-5'>
+            <div className='d-none d-lg-block d-print-block card-sd .d-sm-none .d-md-block'>
+              <p className='h4 text-warning'>
+                {movieDetail.title} - {year}
+              </p>
+              <p>{movieDetail.tagline}</p>
+              <p className='d-none d-lg-block d-print-block'>
+                {movieDetail.overview}
+              </p>
+              <p>Release Date: {movieDetail.release_date}</p>
 
-            <NumberFormat
-              value={movieDetail.budget}
-              displayType={'text'}
-              thousandSeparator={true}
-              prefix={'Budget: $'}
-            />
-            <br />
+              <NumberFormat
+                value={movieDetail.budget}
+                displayType={'text'}
+                thousandSeparator={true}
+                prefix={'Budget: $'}
+              />
+              <br />
 
-            <NumberFormat
-              value={movieDetail.revenue}
-              displayType={'text'}
-              thousandSeparator={true}
-              prefix={'Revenue: $'}
-            />
-            <p>Runtime: {movieDetail.runtime} minutes</p>
-            <button
-              className='btn btn-light btn-sm'
-              onClick={() => this.onAddToList(this.state.movieDetail)}
-            >
-              Add to Watchlist
-            </button>
+              <NumberFormat
+                value={movieDetail.revenue}
+                displayType={'text'}
+                thousandSeparator={true}
+                prefix={'Revenue: $'}
+              />
+              <p>Runtime: {movieDetail.runtime} minutes</p>
+              <button
+                className='btn btn-light btn-sm'
+                onClick={() => this.onAddToList(this.state.movieDetail)}
+              >
+                Add to Watchlist
+              </button>
 
-            <button
-              className='btn btn-danger btn-sm'
-              onClick={() => this.onSeenMovie(this.state.movieDetail)}
-            >
-              Watched it
-            </button>
+              <button
+                className='btn btn-danger btn-sm'
+                onClick={() => this.onSeenMovie(this.state.movieDetail)}
+              >
+                Watched it
+              </button>
+            </div>
           </div>
         </div>
-        <div className='card bg-dark'>
+
+        <div className='card-deck bg-dark'>
           <div className='row'>
             {movieCast &&
-              movieCast.map(item => <CastSummary key={item.id} item={item} />)}
+              movieCast
+                .filter(item => item.profile_path !== null)
+                .map(filteredItem => (
+                  <CastSummary key={filteredItem.id} item={filteredItem} />
+                ))}
           </div>
           <div className='row'>
             {movieCrew &&
-              movieCrew.map(item => <CastSummary key={item.id} item={item} />)}
+              movieCrew
+                .filter(item => item.profile_path !== null)
+                .map(filteredItem => (
+                  <CastSummary key={filteredItem.id} item={filteredItem} />
+                ))}
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

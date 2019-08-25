@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class CastSummary extends Component {
   render() {
     const { item } = this.props;
     return (
-      <div className='row'>
-        <div className='col-md-2 p-3 text-warning' key={item.id}>
-          <div>{item.character}</div>
-          <div>{item.name}</div>
-          <div>
+      <div className='col-md-1 p-3 text-warning' key={item.id}>
+        <div>{item.name}</div>
+        <div>
+          <Link to={`/persons/${item.id}`}>
             <img
               src={`https://image.tmdb.org/t/p/original${item.profile_path}`}
-              className='img-fluid rounded'
               alt='Card cap'
+              className='img-fluid rounded'
             />
-          </div>
+          </Link>
         </div>
       </div>
     );
