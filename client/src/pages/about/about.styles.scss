@@ -1,0 +1,50 @@
+.about-section-heading {
+  color: white;
+  font-weight: bold;
+  padding: 25px;
+  background: rgb(202, 57, 57);
+  text-align: left;
+  font-size: 2rem;
+  height: 233px;
+  width: 455px;
+  margin: 50px auto;
+  text-decoration: none;
+}
+.about-section-heading-tech {
+  color: rgb(202, 57, 57);
+  padding: 25px;
+  background: white;
+  text-align: left;
+  font-size: 2rem;
+  height: 233px;
+  width: 455px;
+  margin: auto;
+  text-decoration: none;
+}
+
+.about-section-heading > ul {
+  list-style: none;
+  font-size: 1rem;
+}
+
+.about-section-heading-tech > ul {
+  list-style: circle;
+  font-size: 1rem;
+}
+.about-section-heading:hover,
+.about-section-heading:active {
+  background: white;
+  color: rgb(202, 57, 57);
+}
+
+.about-section-heading > ul > li > a {
+  text-decoration: none;
+  color: black;
+}
+
+.about-section-heading-tech:hover,
+.about-section-heading-tech:active {
+  background: rgb(202, 57, 57);
+  color: white;
+  overflow: hidden;
+}
