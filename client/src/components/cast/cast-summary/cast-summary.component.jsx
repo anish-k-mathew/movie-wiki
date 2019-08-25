@@ -7,6 +7,8 @@ class CastSummary extends Component {
     return (
       <div className='col-md-1 p-3 text-warning' key={item.id}>
         <div>{item.name}</div>
+        <div>{item.job}</div>
+
         <div>
           <Link to={`/persons/${item.id}`}>
             <img

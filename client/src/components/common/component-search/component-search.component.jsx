@@ -2,7 +2,7 @@ import React from 'react';
 
 const ComponentSearch = ({ value, onChange, onSubmit, placeholder }) => (
   <div className='input-group'>
-    <form className='form-group col justify-content-center' onSubmit={onSubmit}>
+    <form className='form-group col' onSubmit={onSubmit}>
       <input
         type='text'
         className='form-control my-3'

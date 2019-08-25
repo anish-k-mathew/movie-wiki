@@ -8,7 +8,7 @@ import About from './pages/about/about.component';
 import Watchlist from './components/movie/watch-list/watch-list.component';
 import WatchHistory from './components/movie/watch-history/watch-history.component';
 import CastList from './components/cast/cast-list/cast-list.component.jsx';
-
+import MovieDiscover from './components/movie/movie-discover/movie-discover.component.jsx';
 import Header from './components/header/header.component';
 import PersonDetail from './components/person/person-detail/person-detail.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
@@ -50,6 +50,8 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/movies' component={MovieList} />
           <Route exact path='/movies/:movieId' component={MovieDetail} />
+          <Route exact path='/discover' component={MovieDiscover} />
+
           <Route exact path='/homepage/:language' component={HomePage} />
           <Route exact path='/watch' component={Watchlist} />
           <Route exact path='/watchhistory' component={WatchHistory} />

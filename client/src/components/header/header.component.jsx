@@ -51,6 +51,11 @@ const Header = ({ currentUser }) => (
           </a>
         </li>
         <li className='nav-item'>
+          <a className='nav-link text-white' href='/discover'>
+            Browse Movies
+          </a>
+        </li>
+        <li className='nav-item'>
           <a className='nav-link text-white' href='/cast'>
             Cast Search
           </a>
