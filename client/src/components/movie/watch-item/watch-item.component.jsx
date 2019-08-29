@@ -10,7 +10,7 @@ class WatchItem extends Component {
             <h3>{name}</h3>
             <img
               className='card-img'
-              src={`https://image.tmdb.org/t/p/500${profile_path}`}
+              src={`https://image.tmdb.org/t/p/original${profile_path}`}
               alt='Card cap'
             />
           </div>
