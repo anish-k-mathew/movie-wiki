@@ -33,7 +33,7 @@ class TrendingMovieList extends Component {
           <div className='col-lg-2 p-3' key={item.id}>
             <Link to={`/movies/${item.id}`}>
               <img
-                src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                 alt='Card cap'
                 className='img-fluid rounded'
               />
