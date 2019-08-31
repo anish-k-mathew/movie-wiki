@@ -63,7 +63,8 @@ class MovieDetail extends Component {
         title: movieDetail.title,
         description: movieDetail.overview,
         email: this.props.currentUser.email,
-        contentType: 'Movie'
+        contentType: 'Movie',
+        con: 'dl'
       })
     });
   };
@@ -80,7 +81,7 @@ class MovieDetail extends Component {
     }
 
     return (
-      <div className='container'>
+      <div className='container clon'>
         <div className='card bg-dark'>
           <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
           <div className='card-img-overlay  col-md-5'>
