@@ -81,7 +81,7 @@ class MovieDetail extends Component {
     }
 
     return (
-      <div className='container clon'>
+      <div className='container'>
         <div className='card bg-dark'>
           <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
           <div className='card-img-overlay  col-md-5'>
