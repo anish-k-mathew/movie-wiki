@@ -127,8 +127,8 @@ class MovieDiscover extends React.Component {
           <div class='d-flex justify-content-center'>
             <input
               type='submit'
-              value='Search'
-              className='btn btn-warning btn-sm btn-block'
+              value='Find Movies'
+              className='btn btn-danger btn-sm btn-block'
             />
           </div>
         </form>
