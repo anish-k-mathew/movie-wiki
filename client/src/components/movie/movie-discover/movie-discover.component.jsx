@@ -56,9 +56,9 @@ class MovieDiscover extends React.Component {
           className='movie-discover-form bg-dark'
         >
           <div className='p-2'>
-            <h4 className='text-warning text-center'>Browse Movies</h4>
+            <h4 className='text-danger text-center'>Browse Movies</h4>
             <div>
-              <label className='text-warning'>Year</label>
+              <label className='text-danger'>Year</label>
               <select
                 name='year'
                 value={this.state.year}
@@ -107,7 +107,7 @@ class MovieDiscover extends React.Component {
                 <option value='1983'>1983</option>
               </select>
             </div>
-            <label className='text-warning'>Language</label>
+            <label className='text-danger'>Language</label>
             <select
               name='language'
               value={this.state.language}
