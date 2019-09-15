@@ -30,9 +30,7 @@ class PersonDetail extends Component {
   render() {
     const { personDetail } = this.state;
     console.log(personDetail);
-    let imageUrl = `https://image.tmdb.org/t/p/original${
-      personDetail.profile_path
-    }`;
+    let imageUrl = `https://image.tmdb.org/t/p/w185${personDetail.profile_path}`;
 
     return (
       <div className='container'>
