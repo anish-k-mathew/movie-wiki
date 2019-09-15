@@ -63,14 +63,13 @@ class MovieDetail extends Component {
         title: movieDetail.title,
         description: movieDetail.overview,
         email: this.props.currentUser.email,
-        contentType: 'Movie',
-        con: 'dl'
+        contentType: 'Movie'
       })
     });
   };
   render() {
     const { movieDetail, movieCast, movieCrew } = this.state;
-    let imageUrl = `https://image.tmdb.org/t/p/w1280${movieDetail.backdrop_path}`;
+    let imageUrl = `https://image.tmdb.org/t/p/w780${movieDetail.backdrop_path}`;
 
     if (!movieDetail.backdrop_path) {
       imageUrl = `https://image.tmdb.org/t/p/w780${movieDetail.poster_path}`;
@@ -84,50 +83,48 @@ class MovieDetail extends Component {
       <div className='container'>
         <div className='card bg-dark'>
           <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
-          <div className='card-img-overlay  col-md-5'>
-            <div className='d-none d-lg-block d-print-block card-sd .d-sm-none .d-md-block'>
-              <p className='h4 text-warning'>
-                {movieDetail.title} - {year}
-              </p>
-              <p>{movieDetail.tagline}</p>
-              <p className='d-none d-lg-block d-print-block'>
-                {movieDetail.overview}
-              </p>
-              <p>Release Date: {movieDetail.release_date}</p>
+          <div className='d-none d-lg-block d-print-block card-sd .d-sm-none .d-md-block'>
+            <p className='h4 text-warning'>
+              {movieDetail.title} - {year}
+            </p>
+            <p>{movieDetail.tagline}</p>
+            <p className='d-none d-lg-block d-print-block'>
+              {movieDetail.overview}
+            </p>
+            <p>Release Date: {movieDetail.release_date}</p>
 
-              <NumberFormat
-                value={movieDetail.budget}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'Budget: $'}
-              />
-              <br />
+            <NumberFormat
+              value={movieDetail.budget}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'Budget: $'}
+            />
+            <br />
 
-              <NumberFormat
-                value={movieDetail.revenue}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'Revenue: $'}
-              />
-              <p>Runtime: {movieDetail.runtime} minutes</p>
-              <button
-                className='btn btn-light btn-sm'
-                onClick={() => this.onAddToList(this.state.movieDetail)}
-              >
-                Add to Watchlist
-              </button>
+            <NumberFormat
+              value={movieDetail.revenue}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'Revenue: $'}
+            />
+            <p>Runtime: {movieDetail.runtime} minutes</p>
+            <button
+              className='btn btn-light btn-sm'
+              onClick={() => this.onAddToList(this.state.movieDetail)}
+            >
+              Add to Watchlist
+            </button>
 
-              <button
-                className='btn btn-danger btn-sm'
-                onClick={() => this.onSeenMovie(this.state.movieDetail)}
-              >
-                Watched it
-              </button>
-            </div>
+            <button
+              className='btn btn-danger btn-sm'
+              onClick={() => this.onSeenMovie(this.state.movieDetail)}
+            >
+              Watched it
+            </button>
           </div>
         </div>
 
-        <div className='card-deck bg-dark'>
+        <div className='card bg-light'>
           <div className='row'>
             {movieCast &&
               movieCast
