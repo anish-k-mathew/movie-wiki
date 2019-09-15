@@ -70,10 +70,10 @@ class MovieDetail extends Component {
   };
   render() {
     const { movieDetail, movieCast, movieCrew } = this.state;
-    let imageUrl = `https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`;
+    let imageUrl = `https://image.tmdb.org/t/p/w1280${movieDetail.backdrop_path}`;
 
     if (!movieDetail.backdrop_path) {
-      imageUrl = `https://image.tmdb.org/t/p/original${movieDetail.poster_path}`;
+      imageUrl = `https://image.tmdb.org/t/p/w780${movieDetail.poster_path}`;
     }
     let year = '';
     if (movieDetail.release_date) {
