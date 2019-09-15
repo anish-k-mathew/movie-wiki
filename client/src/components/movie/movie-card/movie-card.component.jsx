@@ -53,7 +53,7 @@ class MovieCard extends Component {
       <div className='col-lg-2 p-3 text-warning' key={id}>
         <Link to={`/movies/${id}`}>
           <img
-            src={`https://image.tmdb.org/t/p/original${poster_path}`}
+            src={`https://image.tmdb.org/t/p/w154${poster_path}`}
             alt='Card cap'
             className='img-fluid rounded'
           />

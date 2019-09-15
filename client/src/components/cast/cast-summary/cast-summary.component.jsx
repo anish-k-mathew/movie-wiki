@@ -12,7 +12,7 @@ class CastSummary extends Component {
         <div>
           <Link to={`/persons/${item.id}`}>
             <img
-              src={`https://image.tmdb.org/t/p/original${item.profile_path}`}
+              src={`https://image.tmdb.org/t/p/w154${item.profile_path}`}
               alt='Card cap'
               className='img-fluid rounded'
             />
