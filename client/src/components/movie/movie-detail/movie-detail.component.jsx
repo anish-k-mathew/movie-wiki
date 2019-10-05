@@ -81,18 +81,18 @@ class MovieDetail extends Component {
 
     return (
       <div className='container'>
-        <div className='card bg-dark'>
-          <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
+        <img className='card-img img-fluid' src={imageUrl} alt='Card mod' />
+
+        <div className='card bg-warning text-dark'>
           <div className='d-none d-lg-block d-print-block card-sd .d-sm-none .d-md-block'>
-            <p className='h4 text-warning'>
+            <p className='h4 text-dark'>
               {movieDetail.title} - {year}
             </p>
             <p>{movieDetail.tagline}</p>
-            <p className='d-none d-lg-block d-print-block'>
+            <p className='d-none d-lg-block d-print-block '>
               {movieDetail.overview}
+              Release Date: {movieDetail.release_date}
             </p>
-            <p>Release Date: {movieDetail.release_date}</p>
-
             <NumberFormat
               value={movieDetail.budget}
               displayType={'text'}
@@ -124,7 +124,7 @@ class MovieDetail extends Component {
           </div>
         </div>
 
-        <div className='card bg-light'>
+        <div className='card bg-dark'>
           <div className='row'>
             {movieCast &&
               movieCast
